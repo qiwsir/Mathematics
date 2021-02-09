@@ -8,5 +8,22 @@
         "sidebar":{
             "老齐教室": "http://www.itdiffer.com"
         }
+    },
+    "plugins": [
+        "-highlight", 
+        "prism", 
+        "prism-themes",
+        "mathjax", 
+        "image-captions", 
+        "fontsettings", 
+        "expandable-chapters-small", 
+        "simple-page-toc",
+        "copy-code-button"
+    ],
+    "pluginConfig": {
+        "simple-page-toc":{
+            "maxDepthe": 3,
+            "skipFirstH1":true
+        }
     }
 }
