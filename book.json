@@ -6,7 +6,8 @@
     "isbn": "",
     "links":{
         "sidebar":{
-            "老齐教室": "http://www.itdiffer.com"
+            "老齐教室": "http://www.itdiffer.com",
+            "个人博客": "https://qiwsir.github.io/"
         }
     },
     "plugins": [

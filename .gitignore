@@ -2,6 +2,6 @@
 /_book/
 /_book/*
 .DS_Store
-node_models/
-/node_models/
-/node_models/*
+node_modules/
+/node_modules/
+/node_modules/*
