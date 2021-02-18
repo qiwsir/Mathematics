@@ -19,12 +19,20 @@
         "fontsettings", 
         "expandable-chapters-small", 
         "simple-page-toc",
-        "copy-code-button"
+        "copy-code-button",
+        "copyright"
     ],
-    "pluginConfig": {
+    "pluginsConfig": {
         "simple-page-toc":{
             "maxDepthe": 3,
             "skipFirstH1":true
+        },
+        "copyright": {
+            "site": "https://qiwsir.gitee.io/mathmetics/",
+            "author": "老齐",
+            "website": "老齐教室-机器学习数学基础",
+            "image": "https://gitee.com/qiwsir/images/raw/master/2021-2-15/1613357594979-1.png",
+            "copyProtect": true
         }
     }
 }

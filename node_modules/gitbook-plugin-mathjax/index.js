@@ -135,8 +135,8 @@ module.exports = {
         math: {
             shortcuts: {
                 parsers: ["markdown", "asciidoc"],
-                start: "$$",
-                end: "$$"
+                start: "$",
+                end: "$"
             },
             process: processBlock
         }
