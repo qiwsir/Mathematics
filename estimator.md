@@ -84,7 +84,7 @@ $\hat\mu_k=\frac{1}{n}\sum_{i=1}^nx_i^k \tag{2.1}$
 
 ### 单个正态总体的区间估计
 
-**1. 已知 $\sigma$ 时，$\mu$ 的置信区间**
+**(1)  已知 $\sigma$ 时，$\mu$ 的置信区间**
 
 设 $Z\sim N(0,1)$ ，对正数 $\alpha\in(0,1)$ ，有唯一的 $z_{\alpha}$ 使得
 
@@ -102,7 +102,7 @@ $P(Z\ge z_{\alpha}) = \alpha$
 >
 > $2\times\frac{\sigma}{\sqrt{n}}z_{\alpha/2}$
 
-**2. 未知 $\sigma$ 时，$\mu$ 的置信区间**
+**(2) 未知 $\sigma$ 时，$\mu$ 的置信区间**
 
 用样本标准差 $S=\sqrt{\frac{1}{n-1}\sum_{j=1}^n(X_j-\mu)^2}$ 替代 $\sigma$ ，则枢轴量：
 
@@ -154,7 +154,124 @@ $\{\frac{|\overline{X}-\mu|}{S/\sqrt{n}}\le t_{\alpha/2}(n-1)\}=\{\overline{X}-\
 
 证毕。
 
-**3. 方差 $\sigma^2$ 的置信区间**
+**(3) 方差 $\sigma^2$ 的置信区间**
+
+定义数轴变量 
+
+$\chi^2=\frac{(n-1)S^2}{\sigma^2}=\frac{1}{\sigma^2}\sum_{j=1}^n(X_j-\overline{X})^2 \tag{4.4}$
+
+概率密度是：
+
+$p(u)=b_{n-1}u^{(n-3)/2}e^{-u/2}, u\ge0$
+
+其中 $b_{n-1}$ 是使得 $p(u)$ 的积分等于 $1$ 的常数。称 $\chi^2$ 服从 $n-1$ 个自由度的 $\chi^2$ 分布，记作：$\chi^2\sim\chi^2(n-1)$ 。
+
+![](https://gitee.com/qiwsir/images/raw/master/2021-2-24/1614156216852-chi2.png)
+
+设 $\chi^2_m\sim\chi^2(m)$ ，对于 $\alpha\in(0,1)$ ，有唯一的 $\chi^2_{\alpha}(m)$ 使得：
+
+$P(\chi^2_m\ge \chi^2_{\alpha}(m))=\alpha$
+
+称 $\chi^2_{\alpha}(m)$ 为 $\chi^2_m$ 分布的上 $\alpha$ 分位数。于是有 $P(\chi^2_m\le \chi^2_{\alpha}(m))=1-\alpha$ （如下图）。
+
+![](https://gitee.com/qiwsir/images/raw/master/2021-2-24/1614156549766-chi3.png)
+
+$P(\chi^2_m\ge \chi^2_{\alpha/2}(m))=\alpha/2,\quad P(\chi^2_m\le \chi^2_{\alpha/2}(m))=1-\alpha/2 \tag{4.5}$
+
+由（4.4）式，可以直接计算：
+
+$\begin{split}&P\left(\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)}\right)\le\sigma^2\le\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)}\\=&P\left(\chi^2_{1-\alpha/2}(n-1)\le\frac{(n-1)S^2}{\sigma^2}\le\chi^2_{\alpha/2}(n-1)\right)\\=&P\left(\chi^2_{1-\alpha/2}(n-1)\le\chi^2_{n-1}\le\chi^2_{\alpha/2}(n-1)\right)\\=&P\left(\chi^2_{n-1}\ge\chi^2_{1-\alpha/2}(n-1)\right)-P\left(\chi^2_{n-1}\gt\chi^2_{\alpha/2}(n-1)\right)\\=&1-\frac{\alpha}{2}-\frac{\alpha}{2}\\=&1-\alpha\end{split}$
+
+于是得到如下定理
+
+> **定理 **    设 $X_1,\cdots,X_n$ 是正态总体 $N(\mu,\sigma^2)$ 的样本，$\mu$ 和 $\sigma^2$ 未知，则 $\sigma^2$ 的置信水平为 $1-\alpha$ 的置信区间为：
+>
+> $\left[\frac{(n-1)S^2}{\chi^2_{\alpha/2}(n-1)},\frac{(n-1)S^2}{\chi^2_{1-\alpha/2}(n-1)}\right]$
+
+### 两个正态总体的区间估计
+
+**(1) 均值差 $\mu_1-\mu_2$ 的置信区间**
+
+设总体 $X\sim N(\mu_1,\sigma_1^2)$ 和总体 $Y\sim N(\mu_2,\sigma_2^2)$ 独立，$X_1,\cdots,X_n$ 是 $X$ 的样本，$Y_1,\cdots,Y_m$ 是 $Y$ 的样本，它们相互独立。
+
+则：
+
+$\overline{X}\sim N(\mu_1,\sigma_1^2/n), \quad \overline{Y}\sim N(\mu_2,\sigma^2_2/m)$
+
+从而：
+
+$\overline{X}-\overline{Y}\sim N(\mu_1-\mu_2,\sigma^2_1/n+\sigma^2_2/m)$
+
+于是得到：
+
+$Z=\frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{\sigma^2_1/n+\sigma^2_2/m}}\sim N(0,1) \tag{4.6}$
+
+（1.1）已知 $\sigma^2_1,\sigma^2_2$ 时，对置信水平 $1-\alpha$ ，利用（4.6）式构造出 $\mu_1-\mu_2$ 的置信区间是：
+
+$\left[(\overline{X}-\overline{Y})-z_{\alpha/2}\sqrt{\frac{\sigma^2_1}{n}+\frac{\sigma^2_2}{m}},(\overline{X}-\overline{Y})+z_{\alpha/2}\sqrt{\frac{\sigma^2_1}{n}+\frac{\sigma^2_2}{m}}\right]$
+
+（1.2）已知 $\sigma^2_1=\sigma^2_2$ ，但不知道 $\sigma^2_1,\sigma^2_2$ 的具体值时，利用 $E(S_1^2)=E(S^2_2)=\sigma^2_2$ ，可以验证：
+
+$S_w^2=\frac{(n-1)S_1^2+(m-1)S_2^2}{n+m-2}$
+
+是 $\sigma^2_1$ 和 $\sigma^2_2$ 的无偏估计：$E(S_w^2)=\sigma^2_1=\sigma^2_1$ ，用 $S_w^2$ 代替（4.6）式中的 $\sigma^2_1,\sigma^2_2$ ，得到新的枢轴量及其分布：
+
+$T=\frac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{1/n+1/m}}\sim t(n+m-2) \tag{4.7}$
+
+利用（4.7）式可以构造 $\mu_1-\mu_2$ 的置信水平为 $1-\alpha$ 的置信区间：
+
+$\left[(\overline{X}-\overline{Y})-t_{\alpha/2}S_w\sqrt{\frac{1}{n}+\frac{1}{m}},(\overline{X}-\overline{Y})+t_{\alpha/2}S_w\sqrt{\frac{1}{n}+\frac{1}{m}}\right]$
+
+其中 $t_{\alpha/2}=t_{\alpha/2}(n+m-2)$ 。
+
+**(2) 方差比 $\sigma^2_1/\sigma^2_2$ 的置信区间**
+
+设总体 $X\sim N(\mu_1,\sigma^2_1)$ 和总体 $Y\sim N(\mu_2,\sigma_2^2)$ 独立，$X_1,\cdots,X_n$ 是 $X$ 的样本，$Y_1,\cdots,Y_m$ 是 $Y$ 的样本，它们相互独立。可得枢轴量：
+
+$F=\frac{S_1^2/S_2^2}{\sigma^2_1/\sigma^2_2} \tag{4.8}$ 
+
+的概率密度是：
+
+$p(u)=c\left(1+\frac{n-1}{m-1}u\right)^{-(n+m-2)/2}u^{(n-3)/2},\quad u\ge 0$
+
+其中 $c$ 是使 $p(u)$ 的积分等于 $1$ 的常数。$F$ 服从自由度为 $n-1$ 和 $m-1$ 的 $F$ 分布，记作：$F\sim F(n-1, m-1)$ 。对正数 $\alpha\in(0,1)$ ，有唯一的 $F_{\alpha}(n-1,m-1)$ 使得：
+
+$P(F\gt F_{\alpha}(n-1, m-1))=\alpha$
+
+这是称 $F_{\alpha}(n-1, m-1)$ 为 $F(n-1, m-1)$ 分布的上 $\alpha$ 分位数。
+
+利用枢轴量（4.8）式可得 $\sigma^2_1/\sigma^2_2$ 的置信水平为 $1-\alpha$ 的置信区间是：
+
+$\left[\frac{S_1^2/S_2^2}{F_{\alpha/2}}, \frac{S_1^2/S_2^2}{F_{1-\alpha/2}}\right]$
+
+**证明**
+
+$\begin{split}&P\left(\frac{S_1^2/S_2^2}{F_{\alpha/2}}\le\frac{\sigma_1^2}{\sigma_2^2}\le\frac{S_1^2/S_2^2}{F_{1-\alpha/2}}\right)\\=&P\left(F_{1-\alpha/2}\le\frac{S_1^2/S_2^2}{\sigma^2_1/\sigma^2_2}\le F_{\alpha/2}\right)\\=&P(F\ge F_{1-\alpha/2}-P(F\gt F_{\alpha/2}\\=&1-\alpha/2-\alpha/2=1-\alpha\end{split}$
+
+证毕。
+
+### 非正态总体和比例 p 的置信区间
+
+**(1) 正态逼近法**
+
+若总体不是正态分布，但有较大的样本量，通常要求 $n\ge 30$ ，则 $\frac{\overline{X}-\mu}{\sigma/\sqrt{n}}$ 近似服从标准正态分布，即可得：
+
+$P\left(|\overline{X}-\mu|\le\frac{\sigma z_{\alpha/2}}{\sqrt{n}}\right)\approx 1-\alpha$
+
+于是：
+
+- 已知标准差 $\sigma$ 时，在置信水平 $1-\alpha$ 下，总体均值 $\mu$ 的近似置信区间仍然是：$\left[\overline{X}-\frac{\sigma}{\sqrt{n}}z_{\alpha/2},\overline{X}+\frac{\sigma}{\sqrt{n}}z_{\alpha/2}\right]$
+- 当 $\sigma$ 未知时，对较大的 $n$ ，$S$ 是 $\sigma$ 的强相合估计，所以 $\frac{\overline{X}-\mu}{S/\sqrt{n}}$ 近似服从 $N(0,1)$ 分布，此时均值 $\mu$ 的置信水平为 $1-\alpha$ 的近似置信区间是：$\left[\overline{X}-\frac{S}{\sqrt{n}}z_{\alpha/2},\overline{X}+\frac{S}{\sqrt{n}}z_{\alpha/2}\right]$
+
+**(2) 比例 p 的置信区间**
+
+设 $X_1,\cdots,X_n$ 是两点分布 $\Beta(1,p)$ 的样本，$\hat{p}=\overline{X}$ 是 $p$ 的最大似然估计。对置信水平 $1-\alpha$ ，当 $n$ 较大（至少：$5\le n\hat{p}\le n-5$ ），$p$ 的近似置信区间是：
+
+$\left[\frac{b-\sqrt{b^2-4ac}}{2a},\frac{b+\sqrt{b^2-4ac}}{2a}\right]$
+
+其中 $a=1+\frac{z^2_{\alpha/2}}{n}, b=2\hat{p}+\frac{z^2_{\alpha/2}}{n},c=\hat{p}^2$
+
+**证明**
 
 
 
