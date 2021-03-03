@@ -192,11 +192,21 @@ Python3.x与Python2.x对除法的定义有所不同，这里所演示的是Pytho
 1
 ```
 
+在内置函数中，有`divmod()`，可以同时返回商和余数。
+
+```python
+>>> divmod(5, 2)
+(2, 1)
+```
+
+
+
 ## 分数
 
 Python中表示分数，实用标准库中的一个模块`fractions`。
 
 ```python
+>>> from fractions import Fraction
 >>> a = Fraction(3, 4)
 >>> b = Fraction(2, 6)
 >>> a

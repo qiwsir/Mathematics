@@ -25,4 +25,5 @@
 * [免费课程：用Python玩转数学](doingmath.md)
   * [课程简介](doingmath-00.md)
   * [基础运算](doingmath-01.md)
+  * [Jupyter简介](doingmath-02.md)
 
