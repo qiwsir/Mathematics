@@ -11,6 +11,7 @@
 * [第2章 矩阵](02.md)
   * [对矩阵乘法的深入理解](multiplication.md)
 * [第3章 特征值和特征向量](03.md)
+  * [矩阵对角化](fibonacii.md)
 * [第4章 向量分析](04.md)
 * [第5章 概率](05.md)
 * [第6章 数理统计](06.md)
@@ -21,4 +22,7 @@
   * [交叉熵损失函数](07-01.md)
 * [附录：专题](append.md)
   * [与e相关的内容](aboute.md)
+* [免费课程：用Python玩转数学](doingmath.md)
+  * [课程简介](doingmath-00.md)
+  * [基础运算](doingmath-01.md)
 
