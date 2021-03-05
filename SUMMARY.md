@@ -12,6 +12,7 @@
   * [仿射空间和仿射变换](affine.md)
   * [对矩阵乘法的深入理解](multiplication.md)
   * [求解线性方程组](equation.md)
+  * [LU分解](lu-decomposition.md)
 * [第3章 特征值和特征向量](03.md)
   * [矩阵对角化](fibonacii.md)
 * [第4章 向量分析](04.md)
