@@ -50,13 +50,33 @@ $\pmb{u}$ 和 $\pmb{v}$ 是 $\pmb{Ax}=\pmb{b}$ 解集对应的直线上（ $l_2$
 
 因此，$l_1$ 平行于 $l_2$ ，即 $\pmb{Ax}=\pmb{b}$ 的解集所在直线不过原点，且平行于过原点的 $\pmb{Ax}=\pmb{0}$ 的解集所在直线。
 
+## 克拉默法则
 
+对《机器学习数学基础》第2章2.4.2节中克拉默法则进行证明。
 
+克拉默法则（Cramer's rule）利用行列式计算 $\pmb{Ax}=\pmb{b}$ 的解，其中 $\pmb{A}$ 是 $n\times n$ 方阵。
 
+由于克拉默法则的运行效率不如高斯消元法，所以不能用于大数量方程的线性方程组，通常只用于理论推导$^{[2]}$ ，从这个角度看，**此法则除了具有理论意义之外，在计算上完全可以不用**。
+
+下面的证明来自于参考文献[2]，根据需要做了适当修改。
+
+**克拉默法则**
+
+设 $n$ 阶方阵 $\pmb{A}$ ，$n$ 维向量 $\pmb{b}$ ，将 $\pmb{A}$ 的第 $i$ 列以 $\pmb{b}$ 替换，并记作 $\pmb{A}_i(\pmb{b})$ ，用列向量表示为：
+
+$\pmb{A}_i(\pmb{b})=\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_{i-1}&\pmb{b}&\pmb{a}_{i+1}&\cdots&\pmb{a}_n\end{bmatrix}$
+
+若 $\pmb{A}$ 可逆，即 $|\pmb{A}|\ne0$ ，则 $\pmb{Ax}=\pmb{b}$ 的解：
+
+$\pmb{x_i}=\frac{|\pmb{A}_i(\pmb{b})|}{|\pmb{A}|},(i=1,2,\cdots,n)$
+
+**证明**
 
 
 
 ## 参考文献
 
 [1]. [https://ccjou.wordpress.com/2009/03/20/axb-和-ax0-的解集合有什麼關係？/](https://ccjou.wordpress.com/2009/03/20/axb-%e5%92%8c-ax0-%e7%9a%84%e8%a7%a3%e9%9b%86%e5%90%88%e6%9c%89%e4%bb%80%e9%ba%bc%e9%97%9c%e4%bf%82%ef%bc%9f/)
+
+[2]. [https://ccjou.wordpress.com/2009/11/10/克拉瑪公式的證明/](https://ccjou.wordpress.com/2009/11/10/%E5%85%8B%E6%8B%89%E7%91%AA%E5%85%AC%E5%BC%8F%E7%9A%84%E8%AD%89%E6%98%8E/)
 
