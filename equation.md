@@ -72,11 +72,37 @@ $\pmb{x_i}=\frac{|\pmb{A}_i(\pmb{b})|}{|\pmb{A}|},(i=1,2,\cdots,n)$
 
 **证明**
 
+将原方程 $\pmb{Ax}=\pmb{b}$ 转化为等价的 $\pmb{AX}=\pmb{B}$ ，其中 $\pmb{X},\pmb{B}$ 都是 $n\times n$ 矩阵，将单位矩阵以列向量的形式表示为：$\pmb{I}=\begin{bmatrix}\pmb{e}_1&\cdots&\pmb{e}_n\end{bmatrix}$ 。
 
+以列向量 $\pmb{x}$ 取代 $\pmb{I}$ 的第 $i$ 列，再左乘 $\pmb{A}$ ：
+
+$\pmb{AI}_i(\pmb{x})=\pmb{A}\begin{bmatrix}\pmb{e}_1&\cdots&\pmb{x}&\cdots&\pmb{e}_n\end{bmatrix}$
+
+参考“[对矩阵乘法深入理解](./multiplication.html)”中以列为单元进行矩阵乘法，上式可以进一步变换：
+
+$\begin{split}\pmb{AI}_i(\pmb{x})&=\begin{bmatrix}\pmb{A}\pmb{e}_1&\cdots&\pmb{A}\pmb{x}&\cdots&\pmb{A}\pmb{e}_n\end{bmatrix}\\&=\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{b}&\cdots&\pmb{a}_n\end{bmatrix}\\&=\pmb{A}_i(\pmb{b})\end{split}$
+
+上式即为 $\pmb{AX}=\pmb{B}$ ，其中 $\pmb{X}=\pmb{I}_i(\pmb{x}), \pmb{B}=\pmb{A}_i(\pmb{b})$
+
+利用矩阵乘积的行列式性质，得：
+
+$|\pmb{AX}|=|\pmb{A}||\pmb{X}|=|\pmb{A}||\pmb{I}_i(\pmb{x})|=|\pmb{A}_i(\pmb{b})|$
+
+以余子式展开计算行列式，得：$|\pmb{I}_i(\pmb{x})|=x_i$ （参阅[3]） ，所以，$|\pmb{A}|x_i=|\pmb{A}_i(\pmb{b})|$ 。
+
+若 $|\pmb{A}|\ne0$ ，则：
+
+$x_i=\frac{|\pmb{A}_i(\pmb{b})|}{|\pmb{A}|}$
 
 ## 参考文献
 
 [1]. [https://ccjou.wordpress.com/2009/03/20/axb-和-ax0-的解集合有什麼關係？/](https://ccjou.wordpress.com/2009/03/20/axb-%e5%92%8c-ax0-%e7%9a%84%e8%a7%a3%e9%9b%86%e5%90%88%e6%9c%89%e4%bb%80%e9%ba%bc%e9%97%9c%e4%bf%82%ef%bc%9f/)
 
 [2]. [https://ccjou.wordpress.com/2009/11/10/克拉瑪公式的證明/](https://ccjou.wordpress.com/2009/11/10/%E5%85%8B%E6%8B%89%E7%91%AA%E5%85%AC%E5%BC%8F%E7%9A%84%E8%AD%89%E6%98%8E/)
+
+[3]. 对 $|\pmb{I}_i(\pmb{x})|=x_i$ ，以 $4\times4$ 矩阵为例，当 $i=2$ 时：
+
+$\begin{vmatrix}1&x_1&0&0\\1&x_2&0&0\\1&x_3&0&0\\1&x_4&0&0\end{vmatrix}=x_2\begin{vmatrix}1&0&0\\0&1&0\\0&)&1\end{vmatrix}=x_1\cdot1=x_2$
+
+
 
