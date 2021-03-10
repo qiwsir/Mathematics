@@ -7,7 +7,7 @@
   * [02 极限和连续](b01-02.md)
   * [03 导数](b01-03.md)
 * [第1章 向量和向量空间](01.md)
-  * 
+  * [线性代数基本定理](basetheory.md)
 * [第2章 矩阵](02.md)
   * [矩阵运算](matrixoperation.md)
   * [仿射空间和仿射变换](affine.md)
@@ -15,6 +15,7 @@
   * [可逆矩阵](invertiblematrix.md)
   * [求解线性方程组](equation.md)
   * [LU分解](lu-decomposition.md)
+  * [矩阵的秩](rank.md)
 * [第3章 特征值和特征向量](03.md)
   * [矩阵对角化](fibonacii.md)
 * [第4章 向量分析](04.md)
