@@ -1,10 +1,12 @@
 # 线性代数基本定理
 
+*打开本页面，如果不显示公式，请刷新。*
+
 Gilbert Strang认为线性代数有四个基本定理$^{[1]}$。
 
 线性代数的核心问题是向量空间的线性变换，向量空间是线性代数的研究对象，线性变换是研究向量空间的基本方法。线性变换将一个向量空间的子空间映射到另一个向量空间中的子空间。
 
-## 秩-零化度定理
+## 定理1：秩-零化度定理
 
 以下关于“秩-零化度定理”（rank-nullity theorem）的阐述。以下内容主要参考文献[2]和[3]。
 
@@ -99,7 +101,7 @@ $c_1\pmb{w}_1+\cdots+c_r\pmb{w}_r=d_1\pmb{u}_1+\cdots+d_p\pmb{u}_p$
 
 由 $n=p+r$ 以及前面的假设，可得：
 
-$\dim\mathbb{V}=\dim\ker\pmb{T})+rank\pmb{T}$
+$\dim\mathbb{V}=\dim\ker(\pmb{T})+rank\pmb{T}$
 
 ### 推论
 
@@ -120,7 +122,148 @@ $\dim\mathbb{V}=\dim\ker\pmb{T})+rank\pmb{T}$
 - $n\gt m$ ，则：$\dim N(\pmb{A})=n-\dim C(\pmb{A})\ge n-m \gt 0$ 。即零空间 $N(\pmb{A})$ 包含非零向量，或者说 $\pmb{Ax}=0$ 有无穷多组解。
 - $n\lt m$ ，则：$\dim C(\pmb{A})=n-\dim N(\pmb{A})\le n \lt m$ 。即列空间 $C(\pmb{A})$ 未能充满整个 $\mathbb{R}^m$ （或 $\mathbb{C}^m$），或者说 $\pmb{Ax}=\pmb{b}$ 不总是有解。
 
+## 定理2：矩阵基本子空间
 
+对于矩阵 $\pmb{A}$ ，用如下符号表示不同空间：
+
+- **列空间**（column space）：$C(\pmb{A})$
+- **零空间**（nullspace）：$N(\pmb{A})$
+- **行空间**（row space）：是转置矩阵 $\pmb{A}^T$ 的列空间，$C(\pmb{A}^T)$
+
+因为矩阵的行秩等于列秩，即 $rank\pmb{A}=\dim C(\pmb{A})=\dim C(\pmb{A}^T)$ ，于是“秩—零化度定理”可以写成：
+
+$n = \dim N(\pmb{A}) + \dim C(\pmb{A}^T)$
+
+将原矩阵转置，即得：
+
+$m=\dim N(\pmb{A}^T)+\dim C(\pmb{A})$
+
+- **左零空间**（left nullspace）：$N(\pmb{A}^T)$
+
+$C(\pmb{A}^T),N(\pmb{A})$ 是 $\mathbb{R}^n$ 的子空间，$C(\pmb{A}),N(\pmb{A}^T)$ 是 $\mathbb{R}^m$ 的子空间。
+
+**定理1已经说明了矩阵基本子空间的维数关系。**
+
+以上四个矩阵的基本子空间如下图所示$^{[5]}$：
+
+![](https://gitee.com/qiwsir/images/raw/master/2021-3-11/1615424929638-base03.png)
+
+在《机器学习数学基础》第3章3.4节“正交和投影”中，专门介绍了向量和向量空间的正交概念。此处就探讨矩阵的四个子空间的正交关系，这些关系就构成了线性代数的一个基本定理，即说明**矩阵四个基本子空间的正交补的关系**。
+
+设 $\pmb{S}$ 和 $\pmb{T}$ 是向量空间 $\mathbb{R}^p$ 的两个子空间，若它们正交，记作 $\pmb{S}\bot\pmb{T}$ 。
+
+在向量空间 $\mathbb{R}^p$ 中所有与 $\pmb{S}$ 正交的向量称为**正交补**（orthogonal complement），记作 $\pmb{S}^{\bot}$ 。
+
+$p=\dim{\pmb{S}} + \dim\pmb{S}^{\bot}$ 且 $\pmb{S}\cap\pmb{S}^{\bot}=\{\pmb{0}\}$ 。
+
+### 基本子空间的正交关系
+
+$N(\pmb{A})=C(\pmb{A}^T)^{\bot}$
+
+$N(\pmb{A}^T)=C(\pmb{A})^{\bot}$
+
+下图显示了四个基本子空间之间的正交关系：
+
+![](https://gitee.com/qiwsir/images/raw/master/2021-3-11/1615427857607-base04.png)
+
+### 证明
+
+由矩阵 $\pmb{A}_{m\times n}$ 的零空间定义（参考文献[4]）可知：
+
+$\pmb{Ax}=0 \Longrightarrow \pmb{Ax}=\begin{bmatrix}A的第1行(row_1)\\\vdots\\A的第m行(row_m)\end{bmatrix}\pmb{x}=\begin{bmatrix}0\\\vdots\\0\end{bmatrix}$
+
+每个行向量与 $\pmb{x}$ 的内积都是 $0$ ，所以 $\pmb{x}$ 与所有行向量的线性组合正交，即 $N(\pmb{A})\bot C(\pmb{A}^T)$ 。
+
+ 又因为 $n = \dim N(\pmb{A}) + \dim C(\pmb{A}^T)$ ，
+
+所以：$N(\pmb{A})=C(\pmb{A}^T)^{\bot}$
+
+同样思路，对 $\pmb{A}$ 转置，有：
+
+$\pmb{A}^T\pmb{y}=\begin{bmatrix}A的第1列(col_1)\\\vdots\\A的第n列(col_n)\end{bmatrix}\pmb{y}=\begin{bmatrix}0\\\vdots\\0\end{bmatrix}$
+
+矩阵 $\pmb{A}$ 的每个列向量都与 $\pmb{y}$ 正交，即 $N(\pmb{A}^T)=C(\pmb{A})^{\bot}$ 。
+
+**为什么称为左零空间？**
+
+$\pmb{A}^T\pmb{y}=0$ ，左右都取转置，$\pmb{y}^T\pmb{A}=\pmb{0}^T$ ，$\pmb{y}^T$ 位于 $\pmb{A}$ 的左边，故称 $N(\pmb{A}^T)$ 为左零空间。
+
+## 定理3：正交基$^{[6]}$
+
+设 $m\times n$ 矩阵 $\pmb{A}$ ，$r=rank\pmb{A}\le\min\{m,n\}$ 。$\{\pmb{v}_1,\cdots,\pmb{v}_r\}$ 是 $\pmb{A}$ 的行空间 $C(\pmb{A}^T)$ 的一组基，$\{\pmb{u}_1,\cdots,\pmb{u}_r\}$ 是列空间 $C(\pmb{A})$ 的一组基。
+
+令 $\sigma_1^2,\cdots,\sigma_n^2$ （ $\sigma_i\ge0$ ）是 $n\times n$ 的矩阵 $\pmb{A}^T\pmb{A}$ 的特征值，$\pmb{e}_1,\cdots,\pmb{e}_n$ 为相应的单位特征向量，则有：
+
+$\pmb{A}^T\pmb{Ae}_i=\sigma_i^2\pmb{e}_i,\quad i=1,\cdots,n \tag{3.1}$
+
+其中，$\begin{cases}\pmb{e}^T_i\pmb{e}_i=1,\quad i=j\\\pmb{e}^T_i\pmb{e}_i=0,\quad i\ne j\end{cases}$ 。
+
+将（3.1）式写成矩阵相乘的形式：
+
+$\pmb{A}^T\pmb{A}\begin{bmatrix}\pmb{e}_1&\cdots&\pmb{e}_n\end{bmatrix}=\begin{bmatrix}\pmb{e}_1&\cdots&\pmb{e}_n\end{bmatrix}\begin{bmatrix}\sigma^2_1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\sigma^2_n\end{bmatrix}$
+
+令 $\pmb{E}=\begin{bmatrix}\pmb{e}_1&\cdots&\pmb{e}_n\end{bmatrix}$ ，则 $\pmb{E}^T\pmb{E}=\pmb{I}$ ，故 $\pmb{E}^T=\pmb{E}^{-1}$ ，则 $\pmb{E}$ 是正交矩阵。对上式右乘 $\pmb{E}^T$ 后，得：
+
+$\pmb{A}^T\pmb{A}=\pmb{E}\begin{bmatrix}\sigma^2_1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\sigma^2_n\end{bmatrix}\pmb{E}^T$
+
+所以，$rank(\pmb{A}^T\pmb{A})=rank(diag(\sigma^2_1,\cdots,\sigma^2_n))$ 。
+
+根据前面的假设 $r=rank\pmb{A}$ ，可以假设 $\sigma_1\ge\sigma_2\ge\cdots\sigma_r\gt0$ ，且 $\sigma+{r+1}=\cdots=\sigma_n=0$ ，则 $rank(\pmb{A}^T\pmb{A})=r$ 。
+
+根据定理1，$\dim N(\pmb{A})=n-rank\pmb{A}=n-r$ 。
+
+另外：$\begin{Vmatrix}\pmb{Ae}_i\end{Vmatrix}^2=\pmb{e}_i^T\pmb{A}^T\pmb{Ae}_i=\sigma_i^2\pmb{e}^T_i\pmb{e}_i=\sigma_i^2$
+
+所以，$\begin{Vmatrix}\pmb{Ae}_i\end{Vmatrix}=\sigma_i,(1\le i\le n)$ 。
+
+若 $i=r+1,\cdots,n$ ，$\begin{Vmatrix}\pmb{Ae}_i\end{Vmatrix}=0$ ，即 $\pmb{Ae}_i=\pmb{0}$ 。
+
+因为 $\{\pmb{e}_1,\cdots,\pmb{e}_n\}$ 线性独立，且 $\dim N(\pmb{A})=n-r$ ，所以 $\{\pmb{e}_{r+1},\cdots,\pmb{e}_n\}$ 是 $\pmb{A}$ 的零空间 $N(\pmb{A})$ 的基。
+
+根据定理2，从子空间的正交补可知，$\{\pmb{e}_1,\cdots,\pmb{e}_r\}$ 为 $\pmb{A}$ 的行空间 $C(\pmb{A}^T)$ 的基。
+
+ 将（3.1）式左乘 $\pmb{A}$ ，得：
+
+$\pmb{AA}^T\pmb{Ae}_i=\sigma_i^2\pmb{Ae}_i,i=1,\cdots,n$
+
+则 $m\times m$ 矩阵 $\pmb{AA}^T$ 有非零特征值 $\sigma_1^2,\cdots,\sigma_r^2$ ，对应特征向量为 $\pmb{Ae}_i,i=1,\cdots,r$ 。
+
+令：$\pmb{u}_i=\frac{\pmb{Ae}_i}{\sigma_i},i=1,\cdots,r$
+
+对于 $1\le{i,j}\le{r}$ ，
+
+$\pmb{u_i}^T\pmb{u}_j=\left(\frac{\pmb{Ae}_i}{\sigma_i}\right)^T\left(\frac{\pmb{Ae}_j}{\sigma_j}\right)=\frac{\pmb{e}_i^T\pmb{A}^T\pmb{Ae}_j}{\sigma_i\sigma_j}=\begin{cases}1\quad(i=j)\\0\quad(i\ne j )\end{cases}$
+
+则 $\{\pmb{u}_1,\cdots,\pmb{u}_r\}$ 构成了 $\pmb{A}$ 的列空间 $C(\pmb{A})$ 的一组单位正交基。
+
+因为 $\pmb{AA}^T$ 和 $\pmb{A}^T\pmb{A}$ 有相同的非零特征值，$\pmb{AA}^T$ 另有 $m-r$ 个零特征值。
+
+根据格拉姆-施密特正交化方法（参阅《机器学习数学基础》第3章3.5.1节），得左零空间 $N(\pmb{A}^T)=N(\pmb{AA}^T)$ 的单位正交基 $\{\pmb{u}_{r+1},\cdots,\pmb{u}_m\}$ 。
+
+因为 $N(\pmb{A}^T)=C(\pmb{A})^{\bot}$ （定理2），$\{\pmb{u}_1,\cdots,\pmb{u}_m\}$ 是 $\mathbb{R}^m$ 的单位正交基。
+
+综上可得：
+
+对于 $m\times n$ 矩阵 $\pmb{A}$ ，秩为 $r$ ，则：
+
+- $r=rank\pmb{A}=rank\pmb{A}^T=rank(\pmb{A}^T\pmb{A})=rank(\pmb{AA}^T)$
+- $C(\pmb{A}^T)=C(\pmb{A}^T\pmb{A}), C(\pmb{A})=C(\pmb{AA}^T)$
+- $N(\pmb{A})=N(\pmb{A}^T\pmb{A}), N(\pmb{A}^T)=N(\pmb{AA}^T)$
+- $\pmb{A}^T\pmb{A}$ 的特征值为 $\sigma_1^2,\cdots,\sigma_n^2$ ，对应单位正交的特征向量 $\pmb{e}_1,\cdots,\pmb{e}_n$
+- $\pmb{AA}^T$ 的特征值为 $\sigma_1^2,\cdots,\sigma_m^2$ ，对应单位正交的特征向量 $\pmb{u}_1,\cdots,\pmb{u}_m$
+- $\pmb{Ae}_i=\sigma_i\pmb{u}_i,\sigma_i\gt0,i=1,\cdots,r$ ，且 $\pmb{Ae}_i=\pmb{0},i=r+1,\cdots,n$
+- $\pmb{A}^T\pmb{u}_j=\sigma\pmb{e}_j,\sigma_j\gt0,j=1,\cdots,r$ ，且 $\pmb{A}^T\pmb{u}_j=\pmb{0},j=r+1,\cdots,m$
+
+### 基本子空间的单位正交基
+
+- 行空间 $C(\pmb{A}^T)$ 的基：$\{\pmb{e}_1,\cdots,\pmb{e}_r\}$ ，$\dim C(\pmb{A}^T)=r$
+- 零空间 $N(\pmb{A})$ 的基：$\{\pmb{e}_{r+1},\cdots,\pmb{e}_n\}$，$\dim N(\pmb{A})=n-r$
+- 列空间 $C(\pmb{A})$ 的基：$\{\pmb{u}_1,\cdots,\pmb{u}_r\}$ ，$\dim C(\pmb{A}) = r$
+- 左零空间 $N(\pmb{A}^T)$ 的基：$\{\pmb{u}_{r+1},\cdots,\pmb{u}_m\}$ ，$\dim N(\pmb{A}^T)=m-r$
+
+## 定理4：奇异值分解
+
+详见《机器学习数学基础》第3章3.5.3节。
 
 ## 参考文献
 
@@ -131,6 +274,12 @@ $\dim\mathbb{V}=\dim\ker\pmb{T})+rank\pmb{T}$
 [3]. [https://zh.wikipedia.org/wiki/秩－零化度定理](https://zh.wikipedia.org/wiki/%E7%A7%A9%EF%BC%8D%E9%9B%B6%E5%8C%96%E5%BA%A6%E5%AE%9A%E7%90%86)
 
 [4]. [零空间](./rank.html)
+
+[5]. [https://ccjou.wordpress.com/2009/05/06/線性代數基本定理-二/](https://ccjou.wordpress.com/2009/05/06/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86-%E4%BA%8C/)
+
+[6]. [https://ccjou.wordpress.com/2009/05/15/線性代數基本定理-三/](https://ccjou.wordpress.com/2009/05/15/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86-%E4%B8%89/)
+
+
 
 
 
