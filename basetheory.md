@@ -10,11 +10,11 @@ Gilbert Strang认为线性代数有四个基本定理$^{[1]}$。
 
 以下关于“秩-零化度定理”（rank-nullity theorem）的阐述。以下内容主要参考文献[2]和[3]。
 
-如下图所示，线性变换 $\pmb{T}:\mathbb{V}\to\mathbb{W}$ ，$\mathbb{V}$ 是有限维向量空间，称为**定义域**；$\mathbb{W}$ 也是有限维向量空间，称为**值域**，记作：$ran(\pmb{T})$ 或 $R(\pmb{T})$ 。 
+如下图所示，线性变换 $\pmb{T}:\mathbb{V}\to\mathbb{W}$ ，$\mathbb{V}$ 是有限维向量空间，称为**定义域**；$\pmb{T}$ 的**值域**，记作：$ran(\pmb{T})$ 或 $R(\pmb{T})$ ，是 $\mathbb{W}$ 的子集。$ran({\pmb{T}})=\{\pmb{T}(\pmb{v})|\pmb{v}\in\mathbb{V}\}$
 
 ![](https://gitee.com/qiwsir/images/raw/master/2021-3-10/1615346372410-base01.png)
 
-- **核**：若 $\mathbb{V}$ 里面有一个向量集合，其中每个向量 $\pmb{u}$ 经 $\pmb{T}$ 映射之后为零向量，即 $\pmb{T}(\pmb{u})=\pmb{0}$ ，则此向量集合称为 $\pmb{T}$ 的**核**（kernel），记作：$\ker(\pmb{T})$ 。$ker(\pmb{T})$ 满足向量加法和数量乘法封闭性，是 $\mathbb{V}$ 的一个子空间。
+- **核**：若 $\mathbb{V}$ 里面有一个向量集合，其中每个向量 $\pmb{u}$ 经 $\pmb{T}$ 映射之后为零向量，即 $\pmb{T}(\pmb{u})=\pmb{0}$ ，则此向量集合称为 $\pmb{T}$ 的**核**（kernel），记作：$\ker(\pmb{T})$ 。$ker(\pmb{T})$ 满足向量加法和数量乘法封闭性，是 $\mathbb{V}$ 的一个子空间。核也称为零空间（nullspace），$\ker(\pmb{T})=\{\pmb{v}\in\mathbb{V}|\pmb{T}(\pmb{v})=\pmb{0}\}$ 。
 
 - **零化度**：核的维度（dimension），称为**零化度**（nullity），记作：$\dim\ker(\pmb{T})$ 。可以度量核的大小。
 - **秩**：线性变换 $\pmb{T}$ 的值域的维度，称为**秩**（rank），记作：$rank\pmb{T}=\dim R(\pmb{T})$ 。
@@ -121,6 +121,14 @@ $\dim\mathbb{V}=\dim\ker(\pmb{T})+rank\pmb{T}$
 
 - $n\gt m$ ，则：$\dim N(\pmb{A})=n-\dim C(\pmb{A})\ge n-m \gt 0$ 。即零空间 $N(\pmb{A})$ 包含非零向量，或者说 $\pmb{Ax}=0$ 有无穷多组解。
 - $n\lt m$ ，则：$\dim C(\pmb{A})=n-\dim N(\pmb{A})\le n \lt m$ 。即列空间 $C(\pmb{A})$ 未能充满整个 $\mathbb{R}^m$ （或 $\mathbb{C}^m$），或者说 $\pmb{Ax}=\pmb{b}$ 不总是有解。
+
+**进一步理解**
+
+此定理说明了线性变换前后的空间维数变化。变换后的空间维数如果相对变换前的空间维数减少了——不可能增加，说明变换前的空间经过变换之后出现了“零输出”，零空间 $\ker(\pmb{T})\in\mathbb{V}$ 就是产生“零输出”（即零向量）的变换前的向量集合。
+
+“秩—零化度定理”即“维数守恒定律”，
+
+> 变换前的空间维数 = 零空间的维数 + 变换后的空间维数
 
 ## 定理2：矩阵基本子空间
 
