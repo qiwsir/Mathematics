@@ -18,6 +18,7 @@
   * [矩阵的秩](rank.md)
 * [第3章 特征值和特征向量](03.md)
   * [矩阵对角化](fibonacii.md)
+  * [直和与投影](directsum.md)
 * [第4章 向量分析](04.md)
   * [张量积](tensorproduct.md)
 * [第5章 概率](05.md)
