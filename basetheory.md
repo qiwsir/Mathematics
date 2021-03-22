@@ -132,10 +132,10 @@ $\dim\mathbb{V}=\dim\ker(\pmb{T})+rank\pmb{T}$
 
 ## 定理2：矩阵基本子空间
 
-对于矩阵 $\pmb{A}$ ，用如下符号表示不同空间：
+对于 $m\times n$ 的矩阵 $\pmb{A}$ （仅讨论实数矩阵），用线性变换表示 $\pmb{A}:\mathbb{R}^n\to\mathbb{R}^m$，用如下符号表示不同空间：
 
-- **列空间**（column space）：$C(\pmb{A})$
-- **零空间**（nullspace）：$N(\pmb{A})$
+- **列空间**（column space）：$C(\pmb{A})=\{\pmb{Ax}|\pmb{x}\in\mathbb{R}^n\}$ ，即矩阵的值域（range）。将矩阵用列向量的方式表示 $\pmb{A}=\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_n\end{bmatrix}$ ，其中 $\pmb{a}_j\in\mathbb{R}^m$ ，$C(\pmb{A})$ 是列向量的线性组合。
+- **零空间**（nullspace）：$N(\pmb{A})=\{\pmb{x}\in\mathbb{R}^n|\pmb{Ax}=\pmb{0}\}$
 - **行空间**（row space）：是转置矩阵 $\pmb{A}^T$ 的列空间，$C(\pmb{A}^T)$
 
 因为矩阵的行秩等于列秩，即 $rank\pmb{A}=\dim C(\pmb{A})=\dim C(\pmb{A}^T)$ ，于是“秩—零化度定理”可以写成：
@@ -273,6 +273,20 @@ $\pmb{u_i}^T\pmb{u}_j=\left(\frac{\pmb{Ae}_i}{\sigma_i}\right)^T\left(\frac{\pmb
 
 详见《机器学习数学基础》第3章3.5.3节。
 
+## 术语比较$^{[7]}$
+
+| $\pmb{T}:\mathbb{V}\to\mathbb{W}$ 线性变换                   | $m\times n$ 矩阵 $\pmb{A}:\mathbb{R}^n\to\mathbb{R}^m$       |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 值域：$ran(\pmb{T})=\{\pmb{T}(\pmb{x})|\pmb{x}\in\mathbb{V}\}\subseteq\mathbb{W}$ | 列空间：$C(\pmb{A})=\{\pmb{Ax}|\pmb{x}\in\mathbb{R}^n\}\subseteq\mathbb{R}^m$ |
+| 核：$\ker(\pmb{T})=\{\pmb{x}\in\mathbb{V}+\pmb{T}(\pmb{x})=\pmb{0}\}\subseteq\mathbb{V}$ | 零空间：$N(\pmb{A})=\{\pmb{x}\in\mathbb{R}^n|\pmb{Ax}=\pmb{0}\}\subseteq\mathbb{R}^n$ |
+| 秩：$rank\pmb{T}=\dim ran(\pmb{T})$                          | 秩：$rank\pmb{A}=\dim C(\pmb{A})$                            |
+| 零化度：$nullity\pmb{T}=\dim\ker(\pmb{T})$                   | 零化度：$nullity\pmb{A}=\dim N(\pmb{A})$                     |
+| 满射：$ran(\pmb{T})=\mathbb{W}$ ，即 $rank\pmb{T}=\dim\pmb{T}$ | 满行秩：$C(\pmb{A})=\mathbb{R}^m$ ，即 $rank\pmb{A}=m$       |
+| 单射：$\ker(\pmb{T})=\{\pmb{0}\}$ ，即 $rank\pmb{T}=\dim\mathbb{V}$ | 满列秩：$N(\pmb{A})=\{\pmb{0}\}$ ，即 $rank\pmb{A}=n$        |
+| 同构：$rank\pmb{T}=\dim\mathbb{W}=\dim\mathbb{V}$            | 满秩：$rank\pmb{A}=m=n$                                      |
+
+
+
 ## 参考文献
 
 [1]. Gilbert Strang, The Fundamental Theorem of Linear Algebra, *American Mathematical Monthly*, 100, 1993, 848-855.
@@ -286,6 +300,8 @@ $\pmb{u_i}^T\pmb{u}_j=\left(\frac{\pmb{Ae}_i}{\sigma_i}\right)^T\left(\frac{\pmb
 [5]. [https://ccjou.wordpress.com/2009/05/06/線性代數基本定理-二/](https://ccjou.wordpress.com/2009/05/06/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86-%E4%BA%8C/)
 
 [6]. [https://ccjou.wordpress.com/2009/05/15/線性代數基本定理-三/](https://ccjou.wordpress.com/2009/05/15/%E7%B7%9A%E6%80%A7%E4%BB%A3%E6%95%B8%E5%9F%BA%E6%9C%AC%E5%AE%9A%E7%90%86-%E4%B8%89/)
+
+[7]. [https://ccjou.wordpress.com/2012/11/12/線性變換與矩陣的用語比較/](https://ccjou.wordpress.com/2012/11/12/%E7%B7%9A%E6%80%A7%E8%AE%8A%E6%8F%9B%E8%88%87%E7%9F%A9%E9%99%A3%E7%9A%84%E7%94%A8%E8%AA%9E%E6%AF%94%E8%BC%83/)
 
 
 
