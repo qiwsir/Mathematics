@@ -10,6 +10,7 @@
   * [什么是线性代数](linearalgebra.md)
   * [线性代数基本定理](basetheory.md)
   * [线性映射](linearmap.md)
+  * [柯西—施瓦茨不等式](cauchy-schwarz.md)
 * [第2章 矩阵](02.md)
   * [矩阵运算](matrixoperation.md)
   * [仿射空间和仿射变换](affine.md)

@@ -20,7 +20,45 @@ QR分解目前已知三种算法$^{[1]}$：
 
 $\pmb{H} = \pmb{I}-2\pmb{vv}^*$
 
-其中 $\pmb{v}^*$ 是 $\pmb{v}$ 的共轭转置（在实数范围内，即转置 $\pmb{v}^T$ 。
+其中 $\pmb{v}^*$ 是 $\pmb{v}$ 的共轭转置（在实数范围内，即转置 $\pmb{v}^T$ ）。
+
+设任一向量 $\pmb{x}$ ，通过豪斯霍尔德矩阵，可以得到其镜像向量，如下图所示，可以表示为（在实数范围内）：
+
+$\pmb{Hx}=(\pmb{I}-2\pmb{vv}^T)\pmb{x}=\pmb{x}-2\pmb{vv}^T\pmb{x}\tag{1.1}$
+
+![](https://gitee.com/qiwsir/images/raw/master/2021-3-26/1616750513337-householder.png)
+
+下面用正交投影推导镜像变换$^{[5]}$ ：
+
+根据《机器学习数学基础》第3章3.4.4节的投影矩阵，可得：
+
+$\pmb{P}=\frac{\pmb{vv}^T}{\pmb{v}^T\pmb{v}}=\pmb{vv}^T$
+
+其中 $\pmb{v}$ 是单位法向量。
+
+因为镜像超平面是法向量的正交补（参阅“[直和与投影](./directsum.html)”），如上图，向量 $\pmb{x}$ 至镜面的正交投影为：$\pmb{x}-\pmb{Px}=(\pmb{I}-\pmb{P})\pmb{x}$ ，所以 $\pmb{x}$ 的镜像是：
+
+$(\pmb{I}-\pmb{P})\pmb{x}-\pmb{Px}=(\pmb{I}-2\pmb{P})\pmb{x}=(\pmb{I}-2\pmb{vv}^T)\pmb{x}$
+
+### 特征值
+
+对（1.1）式，若 $\pmb{x}=\pmb{v}$ ，则：
+
+$\pmb{Hv}=v-2\pmb{vv}^T\pmb{v}=\pmb{v}-2\pmb{v}=-\pmb{v}$
+
+由此可知，$\pmb{H}$ 有一个特征向量 $\pmb{v}$ ，对应的特征值是 $-1$ 。
+
+对于 $\mathbb{R}^n$ ，超平面的维度是 $n-1$ ，设此超平面上的 $n-1$ 个线性无关的向量 $\pmb{u}_i,(i=1,\cdots,n-1)$ ，则它们满足：
+
+$\pmb{v}^T\pmb{u}_i=0$
+
+所以：
+
+$\pmb{Hu}_i=(\pmb{I}-2\pmb{vv}^T)\pmb{u}_i=\pmb{u}_i$
+
+这说明 $\pmb{H}$ 有 $n-1$ 个重复特征值 $1$ ，所以 $\det\pmb{H}=-1$ ，$\pmb{H}$ 是可逆矩阵。
+
+
 
 ### 性质
 
@@ -31,7 +69,7 @@ $\pmb{H} = \pmb{I}-2\pmb{vv}^*$
 
 ### 应用
 
-豪斯霍尔德变换可以将向量的某些元素变成零，同时保持该向量的范数不变。例如，列向量 $\pmb{x}=\begin{bmatrix}x_1\\\vdots\\x_n\end{bmatrix}$ ，通过豪斯霍尔德变换，成为单位向量 $\pmb{e}=\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}$ 乘以一个常数的豪斯霍尔德矩阵：
+豪斯霍尔德变换可以将向量的某些元素变成零，同时保持该向量的范数不变。例如，列向量 $\pmb{x}=\begin{bmatrix}x_1\\\vdots\\x_n\end{bmatrix}$ ，通过豪斯霍尔德变换，成为单位向量 $\pmb{e}_1=\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}$ 乘以一个常数的豪斯霍尔德矩阵：
 
 $\pmb{H}=\pmb{I}-\frac{2}{\langle\pmb{v,v}\rangle}\pmb{vv}^H$
 
@@ -40,6 +78,66 @@ $\pmb{H}=\pmb{I}-\frac{2}{\langle\pmb{v,v}\rangle}\pmb{vv}^H$
 $\pmb{v}=\pmb{x}+sgn(x_1)\begin{Vmatrix}x\end{Vmatrix}_2\pmb{e}_1$
 
 对一个矩阵的各个列向量逐一进行相应的豪斯霍尔德变换，可以将这个矩阵变换为上海森伯格矩阵、上三角矩阵等形式。后者就是QR分解的豪斯霍尔德算法。
+
+之所以能如此，原因在于：通过选择适当的超平面法向量 $\pmb{v}$ （单位向量），可以使得镜像映射的向量 $\pmb{Hx}$ 与单位向量 $\pmb{e}_1=\begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}$ 的方向一致，即除了第一个元之外，$\pmb{Hx}$ 的其他元素都是 $0$ 。简单论证此中情形的可行性：
+
+设 $\pmb{H} = \pmb{I}-2\pmb{vv}^T$ ，满足 $\pmb{Hx}=-\sigma\pmb{e}_1$ （令 $\sigma = \begin{Vmatrix}\pmb{x}\end{Vmatrix}$ ，此处也可以假设满足 $\pmb{Hx}=\sigma\pmb{e}_1$ ，如果如此假设，相应符号进行修改），则有：
+
+$\pmb{Hx}=(\pmb{I}-2\pmb{vv}^T)\pmb{x}=x-2(\pmb{v}^T\pmb{x})\pmb{v}=-\sigma\pmb{e}_1$
+
+$2(\pmb{v^T}\pmb{x})\pmb{v}=\pmb{x}+\sigma\pmb{e}_1$
+
+这说明 $\pmb{v}$ 和 $\pmb{x}+\sigma\pmb{e}_1$ 同向，故可令：
+
+$\pmb{v}=\frac{\pmb{x}+\sigma\pmb{e}_1}{\begin{Vmatrix}\pmb{x}+\sigma\pmb{e}_1\end{Vmatrix}}$ 
+
+则：
+
+$\pmb{Hx}\overset{(1.1)式}{=}\pmb{x}-2\pmb{vv}^T\pmb{x}=\pmb{x}-2(\pmb{v}^T\pmb{x})\pmb{v}=\pmb{x}-2\frac{(\pmb{x}+\sigma\pmb{e}_1)^T\pmb{x}}{\begin{Vmatrix}\pmb{x}+\sigma\pmb{e}_1)\end{Vmatrix}^2}(\pmb{x}+\sigma\pmb{e}_1) \tag{1.2}$
+
+根据假设，可知 $\pmb{x}^T\pmb{x}=\begin{Vmatrix}\pmb{x}\end{Vmatrix}^2=\sigma^2$ ，则：
+
+$\begin{split}(\pmb{x}+\sigma\pmb{e}_1)^T(\pmb{x}+\sigma\pmb{e}_1)&=\pmb{x}^T\pmb{x}+\sigma^2+2\sigma\pmb{e}_1^T\pmb{x}\\&=2\pmb{x}^T\pmb{x}+2\sigma\pmb{e}_1^T\pmb{x}\\&=2(\pmb{x}+\sigma\pmb{e}_1)^T\pmb{x}\end{split}$ 
+
+将上式结果代入到（1.2）式，可得：
+
+$\pmb{Hx} = \pmb{x}-(\pmb{x}+\sigma\pmb{e}_1)=-\sigma\pmb{e}_1=-\begin{Vmatrix}\pmb{x}\end{Vmatrix}\pmb{e}_1=\begin{bmatrix}-\begin{Vmatrix}\pmb{x}\end{Vmatrix}\\0\\\vdots\\0\end{bmatrix} \tag{1.3}$
+
+由此，可以看出，利用豪斯霍尔德矩阵能够实现对称矩阵的三角化$^{[1]}$ 。
+
+设 $m\times n$ 的矩阵 $\pmb{A}$ ，以列向量的形式表示 $\pmb{A}=\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_n\end{bmatrix},\pmb{a}_j\in\mathbb{R}^m$ 。令 $\pmb{x}=\pmb{a}_1$ ，且：
+
+$\pmb{v}_1=\frac{\pmb{x}-\sigma\pmb{e}_1}{\begin{Vmatrix}\pmb{x}-\sigma\pmb{e}_1\end{Vmatrix}}$
+
+构建豪斯霍尔德矩阵 $\pmb{H}_1=\pmb{I}_m-2\pmb{v}_1\pmb{v}_1^T$ ：
+
+$\pmb{H}_1\pmb{a}_1=\begin{Vmatrix}\pmb{a}_1\end{Vmatrix}\pmb{e}_1$
+
+用 $\pmb{H}_1$ 左乘矩阵 $\pmb{A}$ ，得：
+
+$\begin{split}\pmb{H}_1\pmb{A} &= \pmb{H}_1\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_n\end{bmatrix}\\ &= \begin{bmatrix}\pmb{H}_1\pmb{a}_1&\cdots&\pmb{H}_1\pmb{a}_n\end{bmatrix}\\ &= \begin{bmatrix}r_{11}&r_{12}&\cdots&r_{1n}\\0&*&\cdots&*\\\vdots&\vdots&\ddots&\vdots\\0&*&\cdots&*\end{bmatrix}\quad(参考(1.3)计算)\\&=\begin{bmatrix}r_{11}&\pmb{r}_1^T\\\pmb{0}&\pmb{A}_2\end{bmatrix}\end{split}$
+
+其中 $r_{11}=\begin{Vmatrix}\pmb{a}_1\end{Vmatrix}$ ，$\pmb{A}_2$ 为右下 $(m-1)\times(n-1)$ 的分块矩阵。
+
+按照上述方式，对 $\pmb{A}_2$ 执行类似的正交化简，设计 $(m-1)\times(n-1)$ 的豪斯霍尔德矩阵 $\pmb{H}_2$ ：
+
+$\pmb{H}_2 = \begin{bmatrix}1&\pmb{0}^T\\\pmb{0}&\hat{\pmb{H}}_2\end{bmatrix}$
+
+其中 $\hat{\pmb{H}}_2=\pmb{I}_{m-1}-2\pmb{v}_2\pmb{v}_2^T$ ，用 $\pmb{H}_2$ 左乘 $\pmb{H}_1\pmb{A}$ ，得：
+
+$\pmb{H}_2\pmb{H}_1\pmb{A}=\begin{bmatrix}r_{11}&\pmb{r}_1^T\\\pmb{0}&\hat{\pmb{H}}_2\pmb{A}\end{bmatrix}=\begin{bmatrix}r_{11}&r_{12}&r_{13}&\cdots&r_{1n}\\0&r_{22}&r_{23}&\cdots&*\\0&0&*&\cdots&*\\\vdots&\vdots&\vdots&\ddots&\vdots\\0&0&*&\cdots&*\end{bmatrix}$
+
+若 $m\gt n$ ，连续左乘 $n$ 个 $m\times m$ 的豪斯霍尔德矩阵，可是 $\pmb{A}$ 化简为：
+
+$\pmb{H}_n\cdots\pmb{H}_2\pmb{H}_1\pmb{A}=\begin{bmatrix}\pmb{R}\\\pmb{0}\end{bmatrix} \tag{1.3}$
+
+其中 $\pmb{R}$ 是 $n\times n$ 的上三角矩阵。
+
+因为 $\pmb{H}_i^{-1}=\pmb{H}_i^T=\pmb{H}_i$ ，由（1.3）式可得 $\pmb{A}$ 的QR分解：
+
+$\pmb{A} = \pmb{H}_n\cdots\pmb{H}_2\pmb{H}_1\begin{bmatrix}\pmb{R}\\\pmb{0}\end{bmatrix}=\pmb{Q}\begin{bmatrix}\pmb{R}\\\pmb{0}\end{bmatrix}$
+
+
 
 ### 用豪斯霍尔德变换对矩阵 $\pmb{A}$ 进行QR分解$^{[4]}$
 
@@ -182,3 +280,6 @@ $\pmb{A}=\pmb{G}_{21}^{T}\pmb{G}_{31}^{T}\pmb{G}_{32}^{T}\pmb{R}=\pmb{QR}$
 [3]. 所谓对合（involution），也称为对核函数，即逆（反）函数等于自身的函数。在线性代数中，对合是线性算子 $\pmb{T}$ 使得 $\pmb{T}^2=\pmb{I}$ 。这种算子可对角化为对角线上有 $1$ 和 $-1$ 。如果这个算子是正交的（称为**正交对合**），它是正交可对角化的。
 
 [4]. [https://zh.wikipedia.org/wiki/QR分解](https://zh.wikipedia.org/wiki/QR%E5%88%86%E8%A7%A3)
+
+[5]. [https://ccjou.wordpress.com/2009/09/14/特殊矩陣-四：householder-矩陣/](https://ccjou.wordpress.com/2009/09/14/%e7%89%b9%e6%ae%8a%e7%9f%a9%e9%99%a3-%e5%9b%9b%ef%bc%9ahouseholder-%e7%9f%a9%e9%99%a3/)
+
