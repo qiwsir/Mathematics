@@ -52,6 +52,8 @@ $\pmb{u}$ 和 $\pmb{v}$ 是 $\pmb{Ax}=\pmb{b}$ 解集对应的直线上（ $l_2$
 
 因此，$l_1$ 平行于 $l_2$ ，即 $\pmb{Ax}=\pmb{b}$ 的解集所在直线不过原点，且平行于过原点的 $\pmb{Ax}=\pmb{0}$ 的解集所在直线。
 
+
+
 ## 克拉默法则
 
 对《机器学习数学基础》第2章2.4.2节中克拉默法则进行证明。
@@ -96,6 +98,28 @@ $|\pmb{AX}|=|\pmb{A}||\pmb{X}|=|\pmb{A}||\pmb{I}_i(\pmb{x})|=|\pmb{A}_i(\pmb{b})
 
 $x_i=\frac{|\pmb{A}_i(\pmb{b})|}{|\pmb{A}|}$
 
+## 存在性与唯一性$^{[4]}$
+
+矩阵 $\pmb{A}$ 是 $m\times n$ ，对于任意 $m$ 维的非零向量 $\pmb{b}$ ，线性方程组 $\pmb{Ax}=\pmb{b}$ 解的唯一性和存在性讨论。
+
+### 存在性
+
+$\pmb{Ax}=\pmb{b}$ 有解，当且仅当 $\pmb{b}^T\pmb{y}=0$ ，其中 $\pmb{y}$ 为满足 $\pmb{A}^T\pmb{y}=\pmb0$ 的任何向量。
+
+或曰：
+
+若 $\pmb{b}$ 正交于左零空间 $N(\pmb{A}^T)$ ，则 $\pmb{Ax}=\pmb{b}$ 有解，反之亦然。
+
+### 唯一性
+
+$\pmb{Ax}=\pmb{b}$ 有唯一解（若解存在），当且仅当 $\pmb{Ax}=\pmb{0}$ 有唯一解 $\pmb{x}=\pmb{0}$ 。
+
+或曰：
+
+若矩阵 $\pmb{A}$ 零空间 $N(\pmb{A})$ 仅含零向量，则 $\pmb{Ax}=\pmb{b}$ 有唯一解，反之亦然。
+
+
+
 ## 参考文献
 
 [1]. [https://ccjou.wordpress.com/2009/03/20/axb-和-ax0-的解集合有什麼關係？/](https://ccjou.wordpress.com/2009/03/20/axb-%e5%92%8c-ax0-%e7%9a%84%e8%a7%a3%e9%9b%86%e5%90%88%e6%9c%89%e4%bb%80%e9%ba%bc%e9%97%9c%e4%bf%82%ef%bc%9f/)
@@ -105,6 +129,8 @@ $x_i=\frac{|\pmb{A}_i(\pmb{b})|}{|\pmb{A}|}$
 [3]. 对 $|\pmb{I}_i(\pmb{x})|=x_i$ ，以 $4\times4$ 矩阵为例，当 $i=2$ 时：
 
 $\begin{vmatrix}1&x_1&0&0\\1&x_2&0&0\\1&x_3&0&0\\1&x_4&0&0\end{vmatrix}=x_2\begin{vmatrix}1&0&0\\0&1&0\\0&)&1\end{vmatrix}=x_1\cdot1=x_2$
+
+[4]. [https://ccjou.wordpress.com/2011/06/07/線性方程解的存在性與唯一性/](https://ccjou.wordpress.com/2011/06/07/%e7%b7%9a%e6%80%a7%e6%96%b9%e7%a8%8b%e8%a7%a3%e7%9a%84%e5%ad%98%e5%9c%a8%e6%80%a7%e8%88%87%e5%94%af%e4%b8%80%e6%80%a7/)
 
 
 

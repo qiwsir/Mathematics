@@ -1,5 +1,7 @@
 # 柯西—施瓦茨不等式
 
+*打开本页，如果没有显示公式，请刷新页面。*
+
 柯西-施瓦茨不等式（Cauchy–Schwarz inequality），又稱施瓦茨不等式或柯西-布尼亞科夫斯基-施瓦茨不等式（Cauchy–Bunyakovsky–Schwarz inequality）不等式以奧古斯丁·路易·柯西（Augustin Louis Cauchy），赫尔曼·阿曼杜斯·施瓦茨（Hermann Amandus Schwarz），和維克托·雅科夫列維奇·布尼亞科夫斯基（Виктор Яковлевич Буняковский）命名$^{[1]}$。 
 
 ## 不等式
