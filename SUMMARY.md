@@ -12,6 +12,7 @@
   * [线性映射](linearmap.md)
   * [柯西—施瓦茨不等式](cauchy-schwarz.md)
   * [向量范数](norm.md)
+  * [四元数、点积和叉积](dotcrossproduct.md)
 * [第2章 矩阵](02.md)
   * [矩阵运算](matrixoperation.md)
   * [仿射空间和仿射变换](affine.md)
