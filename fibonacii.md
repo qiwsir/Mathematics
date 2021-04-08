@@ -2,6 +2,138 @@
 
 *打开本页，如果没有显示公式，请刷新页面。*
 
+## 可对角化矩阵
+
+### 定义
+
+令 $\pmb{A}$ 是 $n\times n$ 矩阵，若存在一个 $n$ 阶可逆矩阵 $\pmb{S}$ ，使得 $\pmb{D}=\pmb{S}^{-1}\pmb{AS}$ ，其中 $\pmb{D}$ 是对角矩阵，则称 $\pmb{A}$ 是**可对角化矩阵**（diagonalizable matrix），$\pmb{S}$ 是 $\pmb{A}$ 的**对角化矩阵**（diagonalizing matrix）。
+
+如果不存在满足上述条件的 $\pmb{S}$ ，则称 $\pmb{A}$ 是不可对角化矩阵。
+
+### 可对角化矩阵的判定$^{[5]}$
+
+设 $\lambda_i$ 是 $\pmb{A}$ 的特征值（含相同的特征值），对应的特征向量 $\pmb{x}_i$ ，$i=1,\cdots,n$ 。可以写出 $n$ 个特征方程：
+
+$\pmb{Ax}_i = \lambda_i\pmb{x}_i,\quad i=1,\cdots,n \tag{1.1}$
+
+将（1.1）式写成矩阵形式：
+
+$\begin{split}\pmb{A}\begin{bmatrix}\pmb{x}_1&\cdots&\pmb{x}_n\end{bmatrix} &= \begin{bmatrix}\pmb{A}\pmb{x}_1&\cdots&\pmb{A}\pmb{x}_n\end{bmatrix}\\&=\begin{bmatrix}\lambda_1\pmb{x}_1&\cdots&\lambda_n\pmb{x}_n\end{bmatrix}\\&=\begin{bmatrix}\pmb{x}_1&\cdots&\pmb{x}_n\end{bmatrix}\begin{bmatrix}\lambda_1&\cdots&0\\\vdots&\ddots&\vdots\\0&\cdots&\lambda_n\end{bmatrix}\end{split} $
+
+设 $\pmb{S}=\begin{bmatrix}\pmb{x}_1&\cdots&\pmb{x}_n\end{bmatrix}$ ，$\pmb{D}$ 是特征值构成的对角矩阵，即 $\pmb{D}=diag(\lambda_1,\cdots,\lambda_n)$ ，则上式化为：
+
+$\pmb{AS}=\pmb{SD} \tag{1.2}$
+
+- 若 $\pmb{A}$ 有 $n$ 个线性无关的特征向量，则 $\pmb{S}$ 是可逆的，由（1.2）式得：
+
+  - $\pmb{A}$ 可分解为：$\pmb{A} = \pmb{SDS}^{-1}$
+  - $\pmb{S}$ 对角化 $\pmb{A}$ ：$\pmb{S}^{-1}\pmb{AS}=\pmb{D}$
+
+- 若 $\pmb{A}$ 不拥有 $n$ 个完整的线性无关的特征向量，则 $\pmb{S}$ 不可逆。故无法对角化 $\pmb{A}$ 。
+
+所以，可以通过判断 $\pmb{A}$ 的特征向量是否完全线性无关，进而确定其是否可对角化。
+
+那么，如何判断特征向量完全线性无关？可以通过特征值部分判断。
+
+### 特征值两两相异
+
+**定理1：**若 $\pmb{A}$ 的特征值两两相异，则 $\pmb{A}$ 有完整的线性无关特征向量。
+
+**证明1**
+
+设 $\lambda_1,\cdots,\lambda_k$ 为相异特征值，$2\le k\le n$ ，对应特征向量集合 $\{\pmb{x}_1,\cdots,\pmb{x}_k\}$ ，考虑：
+
+$c_1\pmb{x}_1+c_2\pmb{x}_2+\cdots+c_k\pmb{x}_k=\pmb{0}\tag{1.3}$
+
+将（1.3）式等号两侧左乘 $(\pmb{A}-\lambda_1\pmb{I})(\pmb{A}-\lambda_2\pmb{I})\cdots(\pmb{A}-\lambda_{k-1}\pmb{I})$ ，并且 $\pmb{Ax}_i=\lambda_i\pmb{x}_i,(1\le i\le k)$ ，得：
+
+$\begin{split}\pmb{0} &= (\pmb{A}-\lambda_1\pmb{I})(\pmb{A}-\lambda_2\pmb{I})\cdots(\pmb{A}-\lambda_{k-1}\pmb{I})(c_1\pmb{x}_1+c_2\pmb{x}_2+\cdots+c_k\pmb{x}_k)\\&=c_1(\pmb{A}-\lambda_2\pmb{I})\cdots(\pmb{A}-\lambda_{k-1}\pmb{I})(\pmb{A}-\lambda_1\pmb{I})\pmb{x}_1 \\&\quad+ c_2(\pmb{A}-\lambda_1\pmb{I})\cdots(\pmb{A}-\lambda_{k-1}\pmb{I})(\pmb{A}-\lambda_2\pmb{I})\pmb{x}_2\\&\quad+\cdots\\&\quad+c_k(\pmb{A}-\lambda_1\pmb{I})(\pmb{A}-\lambda_2\pmb{I})\cdots(\pmb{A}-\lambda_{k-1}\pmb{I})\pmb{x}_k\\&= c_k(\pmb{A}-\lambda_1\pmb{I})(\pmb{A}-\lambda_2\pmb{I})\cdots(\pmb{A}-\lambda_{k-2}\pmb{I})(\lambda_k-\lambda_{k-1})\pmb{x}_k\\&=c_k(\pmb{A}-\lambda_1\pmb{I})(\pmb{A}-\lambda_2\pmb{I})\cdots(\lambda_k-\lambda_{k-2})(\lambda_k-\lambda_{k-1})\pmb{x}_k\\&=\cdots\\&=c_k(\lambda_k-\lambda_1)(\lambda_k-\lambda_2)\cdots(\lambda_k-\lambda_{k-2})(\lambda_k-\lambda_{k-1})\pmb{x}_k\end{split}$
+
+因为 $\lambda_k\ne\lambda_i,1\le i \le{k-1}$ ，且 $\pmb{x}_k\ne0$ ，所以：$c_k=0$ 。
+
+同理，可得：$c_{k-1}=\cdots=c_2=c_1=0$ 。
+
+故 $\{\pmb{x}_1,\cdots,\pmb{x}_k\}$ 是一个完整的线性无关集合。
+
+证毕。
+
+**证明2**（反证法）
+
+设 $\{\pmb{x}_1,\cdots,\pmb{x}_k\}$ 是线性相关集合，在不失一般性的原则下，设 $\{\pmb{x}_1,\cdots,\pmb{x}_{p-1}\}$ 是最大的线性无关集，则：
+
+$\pmb{x}_p=c_1\pmb{x}_1+c_2\pmb{x}_2+\cdots+c_{p-1}\pmb{x}_{p-1} \tag{1.4}$
+
+其中 $c_1,\cdots,c_{p-1}$ 不全为零（因为 $\pmb{x}_p\ne 0$ ）。
+
+（1.4）式等号两侧分别左乘 $\pmb{A}$ ，可得：
+
+$\begin{split}\pmb{Ax}_p &= c_1\pmb{A}\pmb{x}_1+c_2\pmb{Ax}_2+\cdots+c_{p-1}\pmb{Ax}_{p-1}\\&=c_1\lambda_1\pmb{x}_1+c_2\lambda_2\pmb{x}_2+\cdots+c_{p-1}\lambda_{p-1}\pmb{x}_{p-1}\end{split}$
+
+且：
+
+$\pmb{Ax}_p=\lambda_p\pmb{x}_p=c_1\lambda_p\pmb{x}_1+\cdots+c_{p-1}\lambda_p\pmb{x}_{p-1}$
+
+以上两式相减：
+
+$c_1(\lambda_1-\lambda_p)\pmb{x}_1+\cdots+c_{p-1}(\lambda_{p-1}-\lambda_p)\pmb{x}_{p-1}=\pmb{0}$
+
+因为 $\{\pmb{x}_1,\cdots,\pmb{x}_{p-1}\}$ 是线性无关的向量集，且 $\lambda_1,\cdots,\lambda_p$ 两两相异，所以：$c_i=0,(1\le i \le{p-1})$ 。与（1.4）式假设中的系数矛盾。故假设不成立。
+
+证毕。
+
+**若 $\pmb{A}$ 有相同的特征值，在可能可对角化，也可能不可对角化。**
+
+对于 $n$ 阶方阵 $\pmb{A}$ ，特征多项式：
+
+$p(t)=\det(\pmb{A}-t\pmb{I})\tag{1.5}$
+
+特征值 $\lambda$ 即为 $p(t)$ 的根。
+
+将 $n$ 阶行列式展开，（1.5）式即为 $n$ 次多项式，故有 $n$ 个根。
+
+- 将（1.5）式的根中相重的根的数量，称为**代数重数**（algebraic multiplicity）。
+
+由 $\pmb{Ax}=\lambda\pmb{x}$ 得 $(\pmb{A}-\lambda\pmb{I})\pmb{x}=\pmb{0}$ ，根据[零空间](./rank.html)的概念，可知，每个特征值对应的特征向量必定属于 $N(\pmb{A}-\lambda\pmb{I})$ ，称之为对应 $\lambda$ 的**特征空间**（eigenspace）：
+
+- 特征空间中的非零向量都是特征向量。
+- 对应特征值 $\lambda$ 的特征空间维数，$\dim N(\pmb{A}-\lambda\pmb{I})$ ，即所能找到的最大线性无关向量个数，称为 $\lambda$ 的**几何重数**（geometric multiplicity）
+
+### 可对角化充要条件
+
+**定理2：** $n$ 阶方阵 $\pmb{A}$ 可对角化的一个充要条件是：每个特征值 $\lambda$ ，代数重数等于集合重数。或者说，不可对角化矩阵同义语缺陷矩阵。
+
+**证明**
+
+证明 $\to$
+
+假设 $\pmb{A}$ 可对角化，则有 $n$ 个线性无关的特征向量。设 $\lambda$ 的代数重数为 $k$ ，一定有可逆矩阵 $\pmb{S}$ 将 $\pmb{A}$ 对角化为：
+
+$\pmb{S}^{-1}\pmb{AS}=\begin{bmatrix}\lambda\pmb{I}_k&0\\0&\pmb{D}\end{bmatrix}$
+
+且 $\lambda$ 不为 $(n-k)$ 阶对角矩阵 $\pmb{D}$ 的特征值，故 $\pmb{D}-\lambda\pmb{I}$ 是可逆矩阵。因为：
+
+$\pmb{A}-\lambda\pmb{I}=\pmb{S}\begin{bmatrix}0&0\\0&\pmb{D}-\lambda\pmb{I}\end{bmatrix}\pmb{S}^{-1}$
+
+因为可逆矩阵相乘，不改变矩阵的秩，所以：
+
+$rank(\pmb{A}-\lambda\pmb{I})=rank(\begin{bmatrix}0&0\\0&\pmb{D}-\lambda\pmb{I}\end{bmatrix})=rank(\pmb{D}-\lambda\pmb{I})=n-k$
+
+根据“[秩—零花度原理](./basetheory.html)”：
+
+$\dim N(\pmb{A}-\lambda\pmb{I})=n-rank(\pmb{A}-\lambda\pmb{I})=n-(n-k)=k$
+
+故：特征值 $\lambda$ 的集合重数等于代数重数。
+
+证明 $\leftarrow$
+
+设方阵 $\pmb{A}$ 有 $m$ 个相异特征值 $\lambda_i,i=1,\cdots,m$ 。其几何重数等于代数重数，记作 $\beta_i$ 。
+
+则特征向量总数为：$\sum_{i=1}^n\beta_i=n$ 。
+
+因为对应特征值 $\lambda_i$ 的 $\beta_i$ 个特征向量线性无关，这些向量为特征空间 $N(\pmb{A}-\lambda_i\pmb{I})$ 的基；又因为两个相异特征值的特征空间无交集，$\lambda_i\ne\lambda_j,N(\pmb{A}-\lambda_i\pmb{I})\cap N(\pmb{A}-\lambda_j\pmb{I})={\pmb{0}}$ ，则两个特征值对应的特征向量线性无关。
+
+所以，$\pmb{A}$ 有完整的 $n$ 个线性无关的特征向量。
+
 ## 斐波那契数列
 
 神奇的斐波那契数列。公元1150年印度数学家首先描述了斐波那契数列，此后，意大利人斐波那契（Leonardo Fibonacci）在描述兔子繁殖的数量，这样描述：
@@ -396,4 +528,6 @@ $\sum_{i=1}^nF_i^2=F_nF_{n+1} \tag{5.17}$
 [3]. [https://zh.wikipedia.org/wiki/黄金分割率](https://zh.wikipedia.org/wiki/%E9%BB%84%E9%87%91%E5%88%86%E5%89%B2%E7%8E%87)
 
 [4]. 开普勒的墓志铭：*Mensus eram coelos, nunc terrae metior umbras*；*Mens coelestis erat, corporis umbra iacet.*（“我曾测天高，今欲量地深。”“我的灵魂来自上天，凡俗肉体归于此地。”）[https://zh.wikipedia.org/wiki/约翰内斯·开普勒](https://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%E5%86%85%E6%96%AF%C2%B7%E5%BC%80%E6%99%AE%E5%8B%92)
+
+[5]. [线代启示录：可对角化矩阵与缺陷矩阵的判定](https://ccjou.wordpress.com/2010/05/13/%e5%8f%af%e5%b0%8d%e8%a7%92%e5%8c%96%e7%9f%a9%e9%99%a3%e8%88%87%e7%bc%ba%e9%99%b7%e7%9f%a9%e9%99%a3%e7%9a%84%e5%88%a4%e5%ae%9a/)
 

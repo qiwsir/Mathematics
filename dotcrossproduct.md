@@ -18,7 +18,7 @@
 
 威廉·卢云·哈密顿爵士（英語：Sir William Rowan Hamilton，1805年8月4日－1865年9月2日），爱尔兰数学家、物理学家和天文学家。
 
-“哈密顿”这个名称，在物理学中经常会简单，因为哈密顿在1833年建立了经典力学的重新表述（与之对应的另外一个表述是[拉格朗日](./lagrangemulti.html)力学）$^{[4]}$ ，并且此成果也被应用在量子力学中。
+“哈密顿”这个名称，在物理学中经常会见到，因为哈密顿在1833年建立了经典力学的重新表述（与之对应的另外一个表述是[拉格朗日](./lagrangemulti.html)力学）$^{[4]}$ ，并且此成果也被应用在量子力学中。
 
 在数学方面，哈密顿最著名的贡献在于发现了**四元数**，在如今的计算机图形学、控制理论、信号处理、轨道力学等领域，都有四元数的应用。
 
@@ -134,7 +134,7 @@ $\pmb{v}_1\times\pmb{v}_2=\begin{vmatrix}i&j&k\\b_1&c_1&d_1\\b_2&c_2&d_2\end{vma
 
 代入（1.1）式，得：
 
-$\begin{split}q_1q_2 &= (a_1a_2-\pmb{v}_1\cdot\pmb{v}_2)+a_1(b_2i+c_2j+d_2k)+a_2(b_1i+c_1j+d_1k)+(c_1d_2-d_1c_2)i+(d_1b_2-d_2b_1)j+(b_1c_2-b_2c_1)k\\&=(a_1a_2-\pmb{v}_1\cdot\pmb{v}_2)+(a_1\pmb{v}_2)+a_2\pmb{v}_1+\pmb{v}_1\times\pmb{v}_2)\end{split}$
+$\begin{split}q_1q_2 &= (a_1a_2-\pmb{v}_1\cdot\pmb{v}_2)+a_1(b_2i+c_2j+d_2k)+a_2(b_1i+c_1j+d_1k)+(c_1d_2-d_1c_2)i+(d_1b_2-d_2b_1)j+(b_1c_2-b_2c_1)k\\&=(a_1a_2-\pmb{v}_1\cdot\pmb{v}_2)+(a_1\pmb{v}_2+a_2\pmb{v}_1+\pmb{v}_1\times\pmb{v}_2)\end{split}$
 
 （1.2）式中，即有两个向量的点积和叉积。
 
@@ -170,7 +170,7 @@ $\pmb{a}\times\pmb{b}=\left(\begin{vmatrix}a_2&a_3\\b_2&b_3\end{vmatrix},\begin{
 
   $\pmb{c}$ 为任一向量
 
-- 加法分配律：$\pmb{a}\times(\pmb{x}+\pmb{y})=\pmb{a}\times\pmb{x}+\pmb{a}\times\pmb{y},(\pmb{x}+\pmb{y})\times\pmb{b}=\pmb{a}\times\pmb{b}+\pmb{y}\times\pmb{b}$
+- 加法分配律：$\pmb{a}\times(\pmb{x}+\pmb{y})=\pmb{a}\times\pmb{x}+\pmb{a}\times\pmb{y},(\pmb{x}+\pmb{y})\times\pmb{b}=\pmb{x}\times\pmb{b}+\pmb{y}\times\pmb{b}$
 
   $\det(\pmb{a},\pmb{x}+\pmb{y},\pmb{c})=\det(\pmb{a},\pmb{x},\pmb{c})+\det(\pmb{a},\pmb{y},\pmb{c})$
 
