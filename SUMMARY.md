@@ -23,6 +23,7 @@
   * [LU分解](lu-decomposition.md)
   * [矩阵的秩](rank.md)
 * [第3章 特征值和特征向量](03.md)
+  * [不用行列式的特征分析](nodeterminant.md)
   * [相似矩阵](similarity.md)
   * [矩阵对角化](fibonacii.md)
   * [直和与投影](directsum.md)
