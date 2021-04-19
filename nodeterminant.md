@@ -8,15 +8,15 @@
 
 下面参考文献[2]，按照Sheldon Axler的思想，不用行列式，演示相关定理的证明。
 
-设向量空间 $\mathbb{V}$ 中的线性变换 $\pmb{A}$ ，并 $\pmb{X} \sube\mathbb{V}$ 是一个子空间，$\pmb{A(X)}$ 表示子空间向量经 $\pmb{A}$ 映射后的像所成的集合，即 $\pmb{A(X)}=\{\pmb{Ax}|\pmb{x}\in\pmb{X}\}$ 。
+设向量空间 $\mathbb{V}$ 中的线性变换 $\pmb{A}$ ，并 $\pmb{X} \subseteq \mathbb{V}$ 是一个子空间，$\pmb{A(X)}$ 表示子空间向量经 $\pmb{A}$ 映射后的像所成的集合，即 $\pmb{A(X)}=\{\pmb{Ax}|\pmb{x}\in\pmb{X}\}$ 。
 
-如果 $\pmb{A(X)}\sube\pmb{X}$ ，则称 $\pmb{X}$ 为线性变换 $\pmb{A}$ 的一个**不变子空间**（invariant subspace）。
+如果 $\pmb{A(X)}\subseteq\pmb{X}$ ，则称 $\pmb{X}$ 为线性变换 $\pmb{A}$ 的一个**不变子空间**（invariant subspace）。
 
 ## 定理
 
 ### 定理1
 
-对于 $n\times n$ 矩阵 $\pmb{A}$ ，若 $\pmb{X}\sube \mathbb{C}^n$ 为 $\pmb{A}$ 的一个不变子空间，且 $\pmb{X}\ne\{\pmb{0}\}$ ，则存在非零特征向量 $\pmb{x}\in\pmb{X}$ ，使得 $\pmb{Ax}=\lambda\pmb{x}$ 。
+对于 $n\times n$ 矩阵 $\pmb{A}$ ，若 $\pmb{X}\subseteq \mathbb{C}^n$ 为 $\pmb{A}$ 的一个不变子空间，且 $\pmb{X}\ne\{\pmb{0}\}$ ，则存在非零特征向量 $\pmb{x}\in\pmb{X}$ ，使得 $\pmb{Ax}=\lambda\pmb{x}$ 。
 
 **证明**
 
@@ -208,7 +208,7 @@ $n = \dim N((\pmb{A}-\lambda_1\pmb{I})^n)+\cdots+\dim N((\pmb{A}-\lambda_m\pmb{I
 
 这说明特征值 $\lambda_j$ 的代数重数是 $\beta_j$ 。
 
-因为 $N(\pmb{A}-\lambda\pmb{I})\sube N((\pmb{A}-\lambda\pmb{I})^n)$ ，对应特征值 $\lambda$ 的线性无关特征向量个数必定不大于线性无关的广义特征向量数。对应的几何重数就是线性无关的特征向量个数，而代数重数等于线性无关的广义特征向量重数。
+因为 $N(\pmb{A}-\lambda\pmb{I})\subseteq N((\pmb{A}-\lambda\pmb{I})^n)$ ，对应特征值 $\lambda$ 的线性无关特征向量个数必定不大于线性无关的广义特征向量数。对应的几何重数就是线性无关的特征向量个数，而代数重数等于线性无关的广义特征向量重数。
 
 故 $\lambda_j$ 对应的几何重数不大于代数重数。
 
