@@ -50,11 +50,83 @@ $\pmb{A}=\pmb{S}\pmb{T}^{-1}\pmb{BT}\pmb{S}^{-1}=\pmb{ST}^{-1}\pmb{B}(\pmb{ST}^{
 
 两个矩阵有可能相似，也有可能不相似。需要进一步论证。
 
+## 相似关系
+
+$\pmb{A}、\pmb{B}$ 是 $n$ 阶方阵，且 $\pmb{B}=\pmb{SAS}^{-1}$  ，即 $\pmb{B}\sim\pmb{A}$ 。
+
+- $\pmb{A}^T\sim\pmb{A}$
+
+**证明**
+
+下述证明参考了文献[2]的相关内容。
+
+设可逆矩阵 $\pmb{M}$ ，使得：
+
+$\pmb{J}=\pmb{M}^{-1}\pmb{AM}$
+
+其中 $\pmb{J}$ 为 Jordan 矩阵或 Jordan 典型形式，是由 Jordan分块构成的主对角分块矩阵，则：任何一个 Jordan 分块必定与其转置相似，$\pmb{J}\sim\pmb{J}^T$ 。
+
+则 $\pmb{A}=\pmb{MJM}^{-1}$ ，$\pmb{A}\sim\pmb{J}\sim\pmb{J}^T$
+
+又：$\pmb{A}^T=(\pmb{MJM}^{-1})^T=(\pmb{T}^T)^{-1}\pmb{J}^T\pmb{M}^T$
+
+所以 $\pmb{J}^T\sim\pmb{A}^T$
+
+故 $\pmb{A}\sim\pmb{A}^T$
+
+证毕
+
+- 若 $\pmb{B}\sim\pmb{A}$ ，则 $\pmb{B}^2\sim\pmb{A}^2, \pmb{B}^T\sim\pmb{A}^T$ ；又若 $\pmb{A}$ 和 $\pmb{B}$ 可逆，则 $\pmb{B}^{-1}\sim\pmb{A}^{-1}$ 。
+
+**证明**
+
+根据 $\pmb{B}\sim\pmb{A}$ ，设 $\pmb{B}=\pmb{SAS}^{-1}$ ，则 $\pmb{B}^2=\pmb{SAS}^{-1}\pmb{SAS}^{-1}=\pmb{SA}^2\pmb{S}^{-1}\Rightarrow\pmb{B}^2\sim\pmb{A}$
+
+根据 $\pmb{A}^T\sim\pmb{A}$ ，可知 $\pmb{B}^T\sim\pmb{B}$ ，又因为 $\pmb{B}\sim\pmb{A}$ ，所以 $\pmb{B}^T\sim\pmb{A}^T$
+
+$\pmb{A}$ 和 $\pmb{B}$ 可逆，$\pmb{B}^{-1}=(\pmb{SAS}^{-1})^{-1}=\pmb{SA}^{-1}\pmb{S}^{-1}$
+
+证毕
+
+- 若 $\pmb{A}、\pmb{B}$ 至少有一个是可逆的，则 $\pmb{AB}\sim\pmb{BA}$ 。
+
+**证明**
+
+假设 $\pmb{A}$ 可逆，则 $\pmb{AB}=\pmb{A}\pmb{BAA}^{-1}=\pmb{A}(\pmb{BA})\pmb{A}^{-1}\Rightarrow\pmb{AB}\sim\pmb{BA}$
+
+证毕
+
+- $\pmb{A}^T\pmb{A}\sim\pmb{AA}^T$
+
+**证明**
+
+设 $n$ 阶方阵 $\pmb{A}$ 的奇异值分解为 $\pmb{A}=\pmb{U\Sigma V}$ ，$\pmb{U}、\pmb{V}$ 是正交矩阵，$\pmb{U}^T=\pmb{U}^{-1},\pmb{V}^T=\pmb{V}^{-1},\pmb{\Sigma}=diag(\sigma_1,\cdots,\sigma_n)$
+
+则：
+
+$\pmb{A}^T\pmb{A}=(\pmb{U\Sigma V})^T(\pmb{U\Sigma V})=\pmb{V}^T\pmb{\Sigma U}^T\pmb{U\Sigma V}=\pmb{V}^T\pmb{\Sigma}^2\pmb{V}=\pmb{V}^{-1}\pmb{\Sigma}^2\pmb{V}$
+
+$\therefore\quad \pmb{A}^T\pmb{A}\sim\pmb\Sigma^2$
+
+$\pmb{A}\pmb{A}^T=(\pmb{U\Sigma V})(\pmb{U\Sigma V})^T=\pmb{U}\pmb{\Sigma V}\pmb{V}^T\pmb{\Sigma}^T\pmb{ U}^T=\pmb{U}\pmb{\Sigma}^2\pmb{U}^T$
+
+$\therefore\quad\pmb{AA}^T\sim\pmb\Sigma^2$
+
+故：$\pmb{A}^T\pmb{A}\sim\pmb{AA}^T$
+
+证毕
+
+
+
+
+
 
 
 ## 参考文献
 
 [1]. [线代启示录：如何检查量矩阵是否相似](https://ccjou.wordpress.com/2009/06/25/%e5%a6%82%e4%bd%95%e6%aa%a2%e6%9f%a5%e4%ba%8c%e7%9f%a9%e9%99%a3%e6%98%af%e5%90%a6%e7%9b%b8%e4%bc%bc/)
+
+[2]. [线代启示录：矩阵与其转置的相似性](https://ccjou.wordpress.com/2009/09/11/%e7%9f%a9%e9%99%a3%e8%88%87%e5%85%b6%e8%bd%89%e7%bd%ae%e7%9a%84%e7%9b%b8%e4%bc%bc%e6%80%a7/)
 
 
 

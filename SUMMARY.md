@@ -29,6 +29,8 @@
   
 * [第3章 特征值和特征向量](03.md)
   
+  * [不变子空间与特征值](invariantsubspace.md)
+  * [迹的性质](trace.md)
   * [不用行列式的特征分析](nodeterminant.md)
   * [相似矩阵](similarity.md)
   * [矩阵对角化](fibonacii.md)
