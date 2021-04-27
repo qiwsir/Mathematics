@@ -29,6 +29,8 @@
   
 * [第3章 特征值和特征向量](03.md)
   
+  * [理解特征值和特征向量](eigenvalueandeigenvector.md)
+  * [特征值的代数重数与几何重数](multiplicity.md)
   * [不变子空间与特征值](invariantsubspace.md)
   * [迹的性质](trace.md)
   * [不用行列式的特征分析](nodeterminant.md)
@@ -36,6 +38,7 @@
   * [矩阵对角化](fibonacii.md)
   * [直和与投影](directsum.md)
   * [矩阵的QR分解](qr_decomposition.md)
+  * [Google背后的线性代数](google.md)
   
 * [第4章 向量分析](04.md)
   

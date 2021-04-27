@@ -38,9 +38,9 @@ $\begin{split}\pmb{Ax} &= \pmb{A}(c_1\pmb{x}_1+c_2\pmb{x}_2)\\&=c_1\pmb{Ax}_1+c_
 
 $\pmb{A}\begin{bmatrix}\pmb{x}_1&\pmb{x}_2&\pmb{x}_3\end{bmatrix}=\begin{bmatrix}\pmb{x}_1&\pmb{x}_2&\pmb{x}_3\end{bmatrix}\begin{bmatrix}2&1&-1\\0&2&-3\\0&0&3\end{bmatrix}$
 
-令矩阵 $\pmb\Beta=\begin{bmatrix}\pmb{x}_1&\pmb{x}_2&\pmb{x}_3\end{bmatrix}$ （为基），则：
+令矩阵 $\pmb{B}=\begin{bmatrix}\pmb{x}_1&\pmb{x}_2&\pmb{x}_3\end{bmatrix}$ （为基），则：
 
-$[\pmb{A}]_{\pmb\beta}=\pmb\Beta^{-1}\pmb{A}\pmb\Beta=\begin{bmatrix}2&1&-1\\0&2&-3\\0&0&3\end{bmatrix}$
+$[\pmb{A}]_{\pmb\beta}=\pmb{B}^{-1}\pmb{A}\pmb{B}=\begin{bmatrix}2&1&-1\\0&2&-3\\0&0&3\end{bmatrix}$
 
 其中 $[\pmb{A}]_{\pmb\beta}$ 是线性变换 $\pmb{A}$ 参考基底 $\pmb{\beta}$ 的表示矩阵。
 
@@ -62,15 +62,15 @@ $[\pmb{A}]_{\pmb\beta'}=\begin{bmatrix}2&1&0\\0&2&0\\0&0&3\end{bmatrix}$
 
 令 $r_j=\dim{\mathbb{X}_j}$ ，满足 $\sum_{j=1}^kr_j=n$ 。
 
-各个子空间 $\mathbb{X}_j$ 的基向量可以组成 $\mathbb{R}^n$ 的一个基底 $\pmb\beta$ 。若 $\pmb\Beta$ 的列向量依序由这些基向量构成，则 $\pmb\Beta$ 是可逆矩阵，且：
+各个子空间 $\mathbb{X}_j$ 的基向量可以组成 $\mathbb{R}^n$ 的一个基底 $\pmb\beta$ 。若 $\pmb{B}$ 的列向量依序由这些基向量构成，则 $\pmb{B}$ 是可逆矩阵，且：
 
-$[\pmb{A}]_{\pmb\beta}=\pmb\Beta^{-1}\pmb{A\Beta}=\begin{bmatrix}\pmb{D}_1&0&\cdots&0\\0&\pmb{D}_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\pmb{D}_k\end{bmatrix}$
+$[\pmb{A}]_{\pmb\beta}=\pmb{B}^{-1}\pmb{AB}=\begin{bmatrix}\pmb{D}_1&0&\cdots&0\\0&\pmb{D}_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&\pmb{D}_k\end{bmatrix}$
 
 其中 $\pmb{D}_j$ 是 $r_j\times r_j$ 阶分块矩阵。
 
 如果每个不变子空间的维数都等于 $1$ ，即 $r_1=\cdots=r_n=1$ ，则：
 
-$[\pmb{A}]_{\pmb\beta}=\pmb\Beta^{-1}\pmb{A\Beta}=\begin{bmatrix}d_1&0&\cdots&0\\0&d_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&d_k\end{bmatrix}\tag{1.2}$
+$[\pmb{A}]_{\pmb\beta}=\pmb{B}^{-1}\pmb{AB}=\begin{bmatrix}d_1&0&\cdots&0\\0&d_2&\cdots&0\\\vdots&\vdots&\ddots&\vdots\\0&0&\cdots&d_k\end{bmatrix}\tag{1.2}$
 
 此时称 $\pmb{A}$ 为可对角化矩阵。
 
