@@ -69,5 +69,7 @@
 
 * [小能人招聘](digitalworker.md)
 
+* [操作技巧](tips.md)
+
   
 
