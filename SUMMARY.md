@@ -38,6 +38,7 @@
   * [矩阵对角化](fibonacii.md)
   * [直和与投影](directsum.md)
   * [矩阵的QR分解](qr_decomposition.md)
+  * [极分解](polar_decomposition.md)
   * [Google背后的线性代数](google.md)
   
 * [第4章 向量分析](04.md)

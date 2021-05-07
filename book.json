@@ -12,8 +12,6 @@
     },
     "plugins": [
         "-highlight", 
-        "prism", 
-        "prism-themes",
         "mathjax", 
         "image-captions", 
         "fontsettings", 
