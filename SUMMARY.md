@@ -45,6 +45,7 @@
   
   * [张量积](tensorproduct.md)
   * [拉格朗日乘数法](lagrangemulti.md)
+  * [最优化方法](optimization.md)
   
 * [第5章 概率](05.md)
 
