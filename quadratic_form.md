@@ -1,5 +1,7 @@
 # 二次型
 
+*打开本页，如果没有显示公式，请刷新页面。*
+
 ## 定义
 
 令 $\pmb{A}=[a_{ij}]$ 为 $n\times n$ 阶实矩阵，$\pmb{x}=\begin{bmatrix}x_1\\\vdots\\x_n\end{bmatrix}$ 为 $n$ 维实向量，具有以下形式的实函数称为二次型（quadritic form）:
