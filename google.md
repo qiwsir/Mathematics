@@ -105,6 +105,8 @@ $\pmb{A}=\begin{bmatrix}0&1&0&0&0\\1&0&0&0&0\\0&0&0&1&\frac{1}{2}\\0&0&1&0&\frac
 
 对于此矩阵，其特征空间 $V_1(\pmb{A})$ 是 $2$ 维的，例如该空间的一组基向量 $\pmb{x}=\begin{bmatrix}\frac{1}{2}\\\frac{1}{2}\\0\\0\\0\end{bmatrix},\pmb{y}=\begin{bmatrix}0\\0\\\frac{1}{2}\\\frac{1}{2}\\0\end{bmatrix}$ ，这两向量的任意线性组合也都在 $V_1(\pmb{A})$ 内，例如 $\frac{3}{4}\pmb{x}+\frac{1}{4}\pmb{y}=\begin{bmatrix}\frac{3}{8}\\\frac{3}{8}\\\frac{1}{8}\\\frac{1}{8}\\0\end{bmatrix}$ 。但是，这里搞不清楚应该用哪个特征向量表示排名了。
 
+对于图2.2所示的网络，所对应的矩阵 $\dim(V_1(\pmb{A}))\gt1$ ，并非偶然。假设有一个网络 $W$ ，并且是由无向图构成，假设有 $r$ 个互不相连的子网 $W_1,W_2,\cdots,W_r$ ，则 $\dim(V_1(\pmb{A}))\ge r$ ，从而没有唯一的重要性分数向量 $\pmb{x}\in V_1(\pmb{A})$ 使得 $\sum_ix_i=1$ 。即：如果一个网络 $W$ 有 $r$ 个自网络 $W_1,W_2,\cdots,W_r$ ，那么将无法找到一个可以比较一个子网和另外一个子网中页面的页面分数。
+
 
 
 

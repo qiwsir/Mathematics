@@ -124,6 +124,82 @@ $adj\pmb{A}=\pmb{A}^2-Tr(\pmb{A})+\frac{[Tr(\pmb{A})]^2-Tr(\pmb{A}^2)}{2}\pmb{I}
 
 
 
+##可逆矩阵定理和性质总结
+
+### 定理
+
+令 $\pmb{A}$ 是一个 $n\times n$ 的实矩阵，则以下表述对于可逆矩阵 $\pmb{A}$ 是等价的：
+
+1. $\pmb{A}$ 是可逆的，或者说存在 $\pmb{A}^{-1}$ 满足 $\pmb{A}^{-1}\pmb{A}=\pmb{I}_n$ ，$\pmb{I}_n$ 是 $n$ 阶单位矩阵。
+
+2. $\pmb{Ax}=\pmb{0}$ 仅有平凡解 $\pmb{x}=\pmb{0}$ 。
+
+   **证明**：
+
+   若 $\pmb{A}$ 可逆，对于 $\pmb{Ax} = \pmb{0}$ 两侧左乘 $\pmb{A}^{-1}$ 。左侧得：$\pmb{A}^{-1}\pmb{Ax}=\pmb{Ix}=\pmb{x}$ ；右侧为：$\pmb{A}^{-1}\pmb{0}=\pmb{0}$ 。故 $\pmb{x}=\pmb0$ 。 
+
+3. $\pmb{Ax}=\pmb{b}$ 有唯一解 $\pmb{x}=\pmb{A}^{-1}\pmb{b}$ 。
+
+   **证明**：
+
+   假设此方程有两个相异的解 $\pmb{u}$ 和 $\pmb{v}$ ，由已知方程式，可知：
+
+   $\pmb{A}(\pmb{u}-\pmb{v})=\pmb{Au}-\pmb{Av}=\pmb{b}-\pmb{b}=\pmb{0}$ 
+
+   即非平凡解满足 $\pmb{Ax}=\pmb{0}$ 。故 $\pmb{Ax}=\pmb{b}$ 有唯一解。
+
+4. $\pmb{A}$ 有 $n$ 个非零轴（主元，pivot）。
+
+5. $\pmb{A}$ 的简约行梯形式（reduced row echelon form）为 $\pmb{I}_n$ ，或者说 $\pmb{A}$ 行等价于 $\pmb{I}_n$ 。
+
+   **证明**
+
+   由第3条唯一解知，增广矩阵 $\begin{bmatrix}\pmb{A}&\pmb{b}\end{bmatrix}$ 可化简为 $\begin{bmatrix}\pmb{I}&\pmb{A}^{-1}\pmb{b}\end{bmatrix}$ ，即：
+
+   $\pmb{A}^{-1}\begin{bmatrix}\pmb{A}&\pmb{b}\end{bmatrix}=\begin{bmatrix}\pmb{A}^{-1}\pmb{A}&\pmb{A}^{-1}\pmb{b}\end{bmatrix}=\begin{bmatrix}\pmb{I}&\pmb{A}^{-1}\pmb{b}\end{bmatrix}$
+
+6. $\pmb{A}$ 有线性无关的列向量 (column vector)。
+
+   **证明**
+
+   设 $\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_n\end{bmatrix}$ 为 $\pmb{A}$ 的列向量，则：
+
+   $\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_n\end{bmatrix}\begin{bmatrix}x_1\\\vdots\\x_n\end{bmatrix}=x_1\pmb{a}_1+\cdots+x_n\pmb{a}_n=\pmb{0}$
+
+   如果满足第2条定理，则 $\begin{bmatrix}\pmb{a}_1&\cdots&\pmb{a}_n\end{bmatrix}$ 各列向量线性无关。
+
+7. $\pmb{A}$ 有线性无关的行向量 (row vector)。
+
+   **证明**
+
+   假设 $\pmb{A}$ 的行向量线性相关，其中必定存在至少一行可表示其他行的線性組合，也就是说对 $\pmb{A}$ 进行高斯消元法将会至少有一个零行，于是总的轴数就小于 $n$ 。这与第4条定理矛盾。假设不成立。
+
+8. $\rm{rank}\pmb{A}=n$ 。
+
+9. $\pmb{A}$ 的列空間 (column space) 为 $\mathbb R^n$ 或者说线性变换 $\pmb{A}:\mathbb{R}^n\to\mathbb{R}^n$ 是满射（onto，surjective）。
+
+10. $\pmb{A}$ 的行空間 (row space) 为 $\mathbb{R}^n$ 。
+
+11. $\pmb{A}$ 的零空間 (nullspace) 为 $\{\pmb{0}\}$ ，或者说线性变换 $\pmb{A}:\mathbb{R}^n\to\mathbb{R}^n$ 是一对一（one-to-one，injective）。
+
+12. $\pmb{A}^{\rm{T}}$ 的零空間为 $\{\pmb{0}\}$ 。
+
+13. $\rm{det}\pmb{A}\ne0$ 。
+
+14. $\pmb{A}$ 的特征值不为零。
+
+15. $\pmb{A}^{\rm{T}}\pmb{A}$ 是实对称正定矩阵。 
+
+16. $\pmb{A}$ 的奇异值（sigular value）大于零。  
+
+
+
+​    
+
+
+
+
+
 ## 参考文献
 
 [1]. [对矩阵乘法的深入理解](https://qiwsir.gitee.io/mathmetics/multiplication.html)
